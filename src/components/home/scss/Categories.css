@@ -1,0 +1,53 @@
+.home-categories-root {
+  margin: 100px auto;
+  text-align: center;
+}
+.home-categories-root h2 {
+  margin-bottom: 15px;
+  font-size: 35px;
+}
+.home-categories-root > p {
+  margin-bottom: 45px;
+}
+.home-categories-root .categories-cards {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+.home-categories-root .categories-cards .category-card {
+  background-color: #eee;
+  width: 480px;
+  justify-content: flex-start;
+  position: relative;
+  height: 123px;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.home-categories-root .categories-cards .category-card .flexv {
+  gap: 15px;
+  align-items: flex-start;
+}
+.home-categories-root .categories-cards .category-card .flexv button {
+  padding: 7px 19px;
+}
+.home-categories-root .categories-cards .category-card img {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+}
+.home-categories-root .categories-cards .category-card.smartPhones {
+  background-color: #7accff;
+}
+.home-categories-root .categories-cards .category-card.accessories {
+  background-color: #8ed2da;
+}
+.home-categories-root .categories-cards .category-card.Market {
+  background-color: #fc9832;
+}
+.home-categories-root .categories-cards .category-card.electronics {
+  background-color: #bda4e5;
+}/*# sourceMappingURL=Categories.css.map */

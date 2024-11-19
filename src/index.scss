@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    scroll-behavior: smooth;
+    /* border: 1px solid black; */
+    &::selection {
+        background-color: black;
+        color: white;
+    }
+}
+:root {
+    --cream: #f4e8db;
+    --cream-hover: #f0e1d0;
+    --light-orange: #fedebe;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+}
+.logo {
+    font-family: "Pacifico", "Poppins", sans-serif;
+}
+body {
+    min-height: calc(100vh - 30px);
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+}
+.flex2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flexv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.container {
+    max-width: calc(1440px - (2 * 140px));
+    padding: 0px 140px;
+    width: 100%;
+    padding: 0px 10px;
+    margin: 0px auto;
+}
+
+button {
+    border: none;
+    text-transform: capitalize;
+    font-size: 18px;
+    cursor: pointer;
+    &.primary {
+        padding: 7px 10px;
+        font-size: 18px;
+        border-radius: 4px;
+        background-color: var(--cream);
+        transition: background-color 0.3s ease-in-out;
+        &:hover {
+            background-color: var(--cream-hover);
+        }
+    }
+    &.secondary {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        transition: gap 0.2s ease-in-out;
+        &:hover {
+            gap: 12px;
+        }
+    }
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}

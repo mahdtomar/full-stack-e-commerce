@@ -1,0 +1,63 @@
+.navbar-root {
+    margin-top: 30px;
+    .logo {
+        font-size: 30px;
+    }
+    .nav-search {
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 8px;
+        width: 444px;
+        img {
+            width: 22px;
+            height: 22px;
+            margin-inline: 2px;
+        }
+        input {
+            font-size: 16px;
+            line-height: 150%;
+            border: none;
+            display: block;
+            width: 100%;
+            &::placeholder {
+                color: black;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    ul {
+        text-transform: capitalize;
+        gap: 30px;
+        img {
+            width: 32px;
+            aspect-ratio: 1/1;
+        }
+        .nav-item {
+            display: block;
+            position: relative;
+            &::before {
+                content: "";
+                display: block;
+                height: 2px;
+                width: 0px;
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                background-color: black;
+                transition: width 0.3s ease-in-out;
+            }
+            &:hover {
+                &::before {
+                    width: 50%;
+                }
+            }
+            &.active {
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
