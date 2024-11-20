@@ -1,0 +1,37 @@
+.why-choose-us-root {
+  margin-top: 100px;
+  gap: 26px;
+}
+.why-choose-us-root > .flexv {
+  gap: 60px;
+}
+.why-choose-us-root .text {
+  text-align: center;
+}
+.why-choose-us-root .text h2 {
+  margin-bottom: 15px;
+}
+.why-choose-us-root .why-choose-us-card {
+  background-color: var(--light-orange);
+  width: 340px;
+  height: 140px;
+  padding: 16px 18.5px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.why-choose-us-root .why-choose-us-card .icon-container {
+  background-color: white;
+  display: grid;
+  place-items: center;
+  width: 65px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.why-choose-us-root .why-choose-us-card .icon-container img {
+  width: 32px;
+  height: 32px;
+}
+.why-choose-us-root .why-choose-us-card:hover {
+  box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.25);
+}/*# sourceMappingURL=whyChooseUs.css.map */

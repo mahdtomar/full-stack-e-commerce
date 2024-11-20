@@ -1,0 +1,116 @@
+.home-topdeals-root {
+  text-align: center;
+}
+.home-topdeals-root .slider {
+  position: relative;
+  margin-top: 45px;
+}
+.home-topdeals-root .slider .controls {
+  position: absolute;
+  width: calc(100% - 24px);
+  height: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1200px;
+}
+.home-topdeals-root .slider .controls .left-arrow {
+  z-index: 3;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+}
+.home-topdeals-root .slider .controls .left-arrow img {
+  rotate: 180deg;
+  width: 30px;
+  height: 30px;
+}
+.home-topdeals-root .slider .controls .right-arrow {
+  z-index: 3;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+}
+.home-topdeals-root .slider .controls .right-arrow img {
+  width: 30px;
+  height: 30px;
+}
+.home-topdeals-root .deals-slider {
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  max-width: 1070px;
+  margin: auto;
+}
+.home-topdeals-root .deals-slider::-webkit-scrollbar {
+  display: none;
+}
+.home-topdeals-root .deals-slider .deals {
+  gap: 25px;
+  overflow: hidden;
+  width: -moz-max-content;
+  width: max-content;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card {
+  width: 385px;
+  height: 192px;
+  background-color: black;
+  border-radius: 8px;
+  position: relative;
+  align-items: flex-start;
+  padding: 8px;
+  overflow: hidden;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card .price {
+  align-items: flex-start;
+  margin-top: 30px;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card .price p {
+  font-size: 50px;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card .price span {
+  font-size: 18px;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card p {
+  font-weight: bold;
+  color: white;
+  max-width: 200px;
+  text-align: left;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card span {
+  color: #eee;
+  text-decoration: line-through;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card button {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card img {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transition: scale 0.2s ease-in-out;
+}
+.home-topdeals-root .deals-slider .deals .topdeals-card:hover img {
+  scale: 1.1;
+}/*# sourceMappingURL=topdeals.css.map */

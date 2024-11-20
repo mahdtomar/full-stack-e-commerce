@@ -8,10 +8,6 @@
     font-family: "Rubik", sans-serif;
     scroll-behavior: smooth;
     /* border: 1px solid black; */
-    &::selection {
-        background-color: black;
-        color: white;
-    }
 }
 :root {
     --cream: #f4e8db;
@@ -26,6 +22,18 @@ h5,
 h6 {
     font-family: "Playfair Display", serif;
     font-weight: 400;
+    &::selection {
+        background-color: black;
+        color: white;
+    }
+}
+p,
+span,
+a {
+    &::selection {
+        background-color: black;
+        color: white;
+    }
 }
 .logo {
     font-family: "Pacifico", "Poppins", sans-serif;

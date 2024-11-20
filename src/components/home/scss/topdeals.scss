@@ -1,0 +1,117 @@
+.home-topdeals-root {
+    text-align: center;
+    .slider {
+        position: relative;
+        margin-top: 45px;
+        .controls {
+            position: absolute;
+            width: calc(100% - 24px);
+            height: 25px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 1200px;
+            .left-arrow {
+                z-index: 3;
+                background-color: white;
+                width: 50px;
+                height: 50px;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                position: absolute;
+                left: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                box-shadow: 0px 0px 5px 1px rgba($color: #000000, $alpha: 0.3);
+                img {
+                    rotate: 180deg;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            .right-arrow {
+                z-index: 3;
+                background-color: white;
+                width: 50px;
+                height: 50px;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                position: absolute;
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: pointer;
+                box-shadow: 0px 0px 5px 1px rgba($color: #000000, $alpha: 0.3);
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    .deals-slider {
+        position: relative;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        width: 100%;
+        max-width: 1070px;
+        margin: auto;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        .deals {
+            gap: 25px;
+            overflow: hidden;
+            width: max-content;
+            .topdeals-card {
+                width: 385px;
+                height: 192px;
+                background-color: black;
+                border-radius: 8px;
+                position: relative;
+                align-items: flex-start;
+                padding: 8px;
+                overflow: hidden;
+                .price {
+                    align-items: flex-start;
+                    margin-top: 30px;
+                    p {
+                        font-size: 50px;
+                    }
+                    span {
+                        font-size: 18px;
+                    }
+                }
+                p {
+                    font-weight: bold;
+                    color: white;
+                    max-width: 200px;
+                    text-align: left;
+                }
+                span {
+                    color: #eee;
+                    text-decoration: line-through;
+                }
+                button {
+                    position: absolute;
+                    right: 8px;
+                    bottom: 8px;
+                }
+                img {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    transition: scale 0.2s ease-in-out;
+                }
+                &:hover {
+                    img {
+                        scale: 1.1;
+                    }
+                }
+            }
+        }
+    }
+}

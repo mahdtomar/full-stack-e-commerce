@@ -9,14 +9,6 @@
   scroll-behavior: smooth;
   /* border: 1px solid black; */
 }
-*::-moz-selection {
-  background-color: black;
-  color: white;
-}
-*::selection {
-  background-color: black;
-  color: white;
-}
 
 :root {
   --cream: #f4e8db;
@@ -32,6 +24,31 @@ h5,
 h6 {
   font-family: "Playfair Display", serif;
   font-weight: 400;
+}
+h1::-moz-selection, h2::-moz-selection, h3::-moz-selection, h4::-moz-selection, h5::-moz-selection, h6::-moz-selection {
+  background-color: black;
+  color: white;
+}
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection {
+  background-color: black;
+  color: white;
+}
+
+p::-moz-selection, span::-moz-selection, a::-moz-selection {
+  background-color: black;
+  color: white;
+}
+
+p::selection,
+span::selection,
+a::selection {
+  background-color: black;
+  color: white;
 }
 
 .logo {
