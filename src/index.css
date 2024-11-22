@@ -39,11 +39,15 @@ h6::selection {
   color: white;
 }
 
+p,
+span,
+a {
+  line-height: 150%;
+}
 p::-moz-selection, span::-moz-selection, a::-moz-selection {
   background-color: black;
   color: white;
 }
-
 p::selection,
 span::selection,
 a::selection {

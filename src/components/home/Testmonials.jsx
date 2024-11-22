@@ -2,6 +2,7 @@ import user1 from './../../assets/images/user-1.png'
 import user2 from './../../assets/images/user-2.png'
 import user3 from './../../assets/images/user-3.png'
 import TestmonialsCards from './TestmonialsCards'
+import './scss/testmonials.css'
 const Testmonials = () => {
     const ratings = [
         {
@@ -26,9 +27,15 @@ const Testmonials = () => {
     return (
         <div className="testmonials-home-root">
             <h2>What Our Customers Say</h2>
-            {ratings.map(({ img, rating, userName, comment }, i) => {
-                return <TestmonialsCards key={i} img={img} rating={rating} userName={userName} comment={comment} />
-            })}
+            <div className="container flex2">
+                {ratings.map(({ img, rating, userName, comment }, i) => {
+                    return <TestmonialsCards key={i} img={img} rating={rating} userName={userName} comment={comment} />
+                })}
+            </div>
+            <div className="cta container">
+                <p>Want to see more stories from our happy customers?</p>
+                <button className="primary">Read More Reviews</button>
+            </div>
         </div>
     )
 }

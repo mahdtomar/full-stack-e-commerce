@@ -1,0 +1,27 @@
+.footer {
+  border-top: 1px solid grey;
+  padding-top: 60px;
+}
+.footer .links {
+  align-items: flex-start;
+  gap: 75px;
+}
+.footer .links ul {
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: 20px;
+}
+.footer .links ul p {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.footer .logo {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+.footer .logo .flex2 {
+  width: 147px;
+}
+.footer .logo .flex2 img {
+  width: 32px;
+}/*# sourceMappingURL=footer.css.map */
