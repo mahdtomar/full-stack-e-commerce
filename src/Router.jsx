@@ -4,7 +4,7 @@ import Home from "./pages/Home"
 const Router = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/full-stack-e-commerce" element={<Home />} />
         </Routes>
     )
 }
