@@ -3,28 +3,35 @@ import whatsapp from './../../assets/icons/WhatsappLogo.svg'
 import linkedIn from './../../assets/icons/LinkedinLogo.svg'
 import github from './../../assets/icons/brand-github.svg'
 import './scss/footer.css'
+import NavItem from "../navbar/NavItem"
 const Footer = () => {
     return (
         <div className="footer container">
             <div className="flex2">
                 <div className="links flex2">
                     <ul className="flexv">
-                        <p>Customer Service</p>
-                        <Link >FAQ</Link>
-                        <Link >Returns</Link>
-                        <Link >Shipping Info</Link>
-                        <Link >Contact Us</Link>
+                        <li>
+                            <p>Customer Service</p>
+                        </li>
+                        <NavItem path={''} name={"FAQ"} />
+                        <NavItem path={''} name={"Returns"} />
+                        <NavItem path={''} name={"Shipping Info"} />
+                        <NavItem path={''} name={"Contact Us"} />
                     </ul>
                     <ul className="flexv">
-                        <p>About</p>
-                        <Link >About Us</Link>
-                        <Link >Careers</Link>
-                        <Link >Sustainability</Link>
+                        <li>
+                            <p>About</p>
+                        </li>
+                        <NavItem path={''} name={"About Us"} />
+                        <NavItem path={''} name={"Careers"} />
+                        <NavItem path={''} name={"Sustainability"} />
                     </ul>
                     <ul className="flexv">
-                        <p>Policies</p>
-                        <Link >Privacy Policy</Link>
-                        <Link >Terms Of Service</Link>
+                        <li>
+                            <p>Policies</p>
+                        </li>
+                        <NavItem path={''} name={"Privacy Policy"} />
+                        <NavItem path={''} name={"Terms Of Service"} />
                     </ul>
                 </div>
                 <div className="logo flexv">

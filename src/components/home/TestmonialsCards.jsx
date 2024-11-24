@@ -15,8 +15,8 @@ const TestmonialsCards = ({ img, rating, userName, comment }) => {
         <div className="testmonial-card">
             <img src={img} alt="user image" className="user-image" />
             <div className="rating">
-                {isHalf && starCount < 4 ? Array(starCount - 1).fill(0).map((e, i) => { return <img key={i} src={fullStar} /> }) : Array(starCount).fill(0).map((e, i) => { return <img key={i} src={fullStar} /> })}
-                {isHalf && <img src={halfStar} />}
+                {isHalf && starCount < 4 ? Array(starCount - 1).fill(0).map((e, i) => { return <img key={i} src={fullStar} alt={"star icon"} /> }) : Array(starCount).fill(0).map((e, i) => { return <img key={i} src={fullStar} alt={"star icon"} /> })}
+                {isHalf && <img src={halfStar} alt="half star icon" />}
             </div>
             <div className="testmonial">
                 <span>{userName}</span>

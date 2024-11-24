@@ -16,9 +16,9 @@ const Navbar = () => {
                 <NavSearch />
                 <ul className="flex2">
                     {navigationLinks.map(({ name, path, state, className }, i) => <NavItem key={i} name={name} path={path} state={state} className={className} />)}
+                </ul>
                     <div className="cart"><img src={cart} alt="cart" /></div>
                     <button className="primary">Shop Now</button>
-                </ul>
                 <div className="menu-icon"><img src={menuIcon} alt="menu icon" /></div>
             </div>
         </nav>

@@ -33,6 +33,7 @@
 }
 .navbar-root ul {
   text-transform: capitalize;
+  list-style-type: none;
   gap: 30px;
 }
 .navbar-root ul img {
