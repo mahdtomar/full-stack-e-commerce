@@ -62,7 +62,7 @@ const TopDeals = () => {
     return (
         <div className="home-topdeals-root">
             <h2>Today’s Top Deals</h2>
-            <div className="slider">
+            <div className="slider container">
                     <div onClick={() => { scroll("right") }} className="right-arrow"><img src={rightArrow} alt="right scroll arrow" /></div>
                     <div onClick={() => { scroll("left") }} className="left-arrow"><img src={rightArrow} alt="left scroll arrow" /></div>
                 <div className="deals-slider" ref={topDealsSlider}>
