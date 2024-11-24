@@ -9,14 +9,13 @@ const TestmonialsCards = ({ img, rating, userName, comment }) => {
         const halfStars = rating % 1 >= 0.25 && rating % 1 < 0.5
         setStarCount(fullStars)
         setIsHalf(halfStars)
-        console.log("full stars are", fullStars, "half stars are :", halfStars)
     }
     useEffect(() => { calculateRating() }, [])
     return (
         <div className="testmonial-card">
             <img src={img} alt="user image" className="user-image" />
             <div className="rating">
-                {isHalf && starCount < 4 ? Array(starCount - 1).fill(0).map(() => { return <img src={fullStar} /> }) : Array(starCount).fill(0).map(() => { return <img src={fullStar} /> })}
+                {isHalf && starCount < 4 ? Array(starCount - 1).fill(0).map((e, i) => { return <img key={i} src={fullStar} /> }) : Array(starCount).fill(0).map((e, i) => { return <img key={i} src={fullStar} /> })}
                 {isHalf && <img src={halfStar} />}
             </div>
             <div className="testmonial">

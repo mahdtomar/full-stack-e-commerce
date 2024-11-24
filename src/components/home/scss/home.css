@@ -30,4 +30,67 @@
 .homepage-header-root .gallery .flex2 img,
 .homepage-header-root .gallery .flexv img {
   border-radius: 8px;
+}
+
+@media (max-width: 1080px) {
+  .homepage-header-root {
+    margin-top: 50px;
+  }
+  .homepage-header-root .header {
+    max-width: 50%;
+  }
+  .homepage-header-root .gallery {
+    width: 50%;
+  }
+  .homepage-header-root .gallery .flex2 img,
+  .homepage-header-root .gallery .flexv img {
+    max-width: 100%;
+  }
+}
+@media (max-width: 850px) {
+  .homepage-header-root {
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .homepage-header-root .header {
+    max-width: 100%;
+  }
+  .homepage-header-root .gallery {
+    width: 100%;
+  }
+  .homepage-header-root .gallery .flex2,
+  .homepage-header-root .gallery .flexv {
+    width: 100%;
+  }
+  .homepage-header-root .gallery .flex2 img,
+  .homepage-header-root .gallery .flexv img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 850px) {
+  .homepage-header-root {
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .homepage-header-root .header {
+    max-width: 100%;
+  }
+  .homepage-header-root .header h1 {
+    font-size: 40px;
+  }
+  .homepage-header-root .gallery {
+    width: 100%;
+  }
+  .homepage-header-root .gallery .flex2,
+  .homepage-header-root .gallery .flexv {
+    width: 100%;
+  }
+  .homepage-header-root .gallery .flex2 img,
+  .homepage-header-root .gallery .flexv img {
+    width: 100%;
+    max-width: 100%;
+  }
 }/*# sourceMappingURL=home.css.map */

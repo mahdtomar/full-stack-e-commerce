@@ -30,3 +30,65 @@
         }
     }
 }
+@media (max-width: 1080px) {
+    .homepage-header-root {
+        margin-top: 50px;
+        .header {
+            max-width: 50%;
+        }
+        .gallery {
+            width: 50%;
+            .flex2,
+            .flexv {
+                img {
+                    max-width: calc(100%);
+                }
+            }
+        }
+    }
+}
+@media (max-width: 850px) {
+    .homepage-header-root {
+        margin-top: 50px;
+        flex-direction: column;
+        gap: 30px;
+        .header {
+            max-width: 100%;
+        }
+        .gallery {
+            width: 100%;
+            .flex2,
+            .flexv {
+                width: 100%;
+                img {
+                    width: 100%;
+                    max-width: calc(100%);
+                }
+            }
+        }
+    }
+}
+@media (max-width: 850px) {
+    .homepage-header-root {
+        margin-top: 50px;
+        flex-direction: column;
+        gap: 30px;
+        .header {
+            max-width: 100%;
+            h1{
+                font-size: 40px;
+            }
+        }
+        .gallery {
+            width: 100%;
+            .flex2,
+            .flexv {
+                width: 100%;
+                img {
+                    width: 100%;
+                    max-width: calc(100%);
+                }
+            }
+        }
+    }
+}

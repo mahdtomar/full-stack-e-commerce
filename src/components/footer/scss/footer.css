@@ -24,4 +24,29 @@
 }
 .footer .logo .flex2 img {
   width: 32px;
+}
+
+@media (max-width: 450px) {
+  .footer {
+    padding-top: 30px;
+  }
+  .footer > .flex2 {
+    flex-direction: column;
+  }
+  .footer .links {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  .footer .links ul {
+    gap: 10px;
+    align-items: flex-start;
+    font-weight: 20px;
+  }
+  .footer .links ul p {
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  .footer .links ul a {
+    white-space: nowrap;
+  }
 }/*# sourceMappingURL=footer.css.map */

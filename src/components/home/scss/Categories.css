@@ -16,13 +16,12 @@
 }
 .home-categories-root .categories-cards .category-card {
   background-color: #eee;
-  width: 480px;
-  justify-content: flex-start;
   position: relative;
   height: 123px;
   border-radius: 8px;
+  width: 480px;
   overflow: hidden;
-  padding: 20px;
+  padding: 20px 0px 20px 20px;
   font-size: 20px;
   text-transform: capitalize;
 }
@@ -30,14 +29,12 @@
   gap: 15px;
   align-items: flex-start;
 }
+.home-categories-root .categories-cards .category-card .flexv p {
+  white-space: nowrap;
+}
 .home-categories-root .categories-cards .category-card .flexv button {
   padding: 7px 19px;
-}
-.home-categories-root .categories-cards .category-card img {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 100%;
+  white-space: nowrap;
 }
 .home-categories-root .categories-cards .category-card.smartPhones {
   background-color: #7accff;
@@ -50,4 +47,43 @@
 }
 .home-categories-root .categories-cards .category-card.electronics {
   background-color: #bda4e5;
+}
+
+@media (max-width: 1080px) {
+  .home-categories-root {
+    margin: 80px auto;
+  }
+  .home-categories-root .categories-cards .category-card {
+    width: 380px;
+  }
+}
+@media (max-width: 850px) {
+  .home-categories-root {
+    margin: 80px auto;
+  }
+  .home-categories-root .categories-cards {
+    gap: 20px;
+  }
+  .home-categories-root .categories-cards .category-card {
+    width: 380px;
+  }
+}
+@media (max-width: 768px) {
+  .home-categories-root {
+    margin: 80px auto;
+  }
+  .home-categories-root .categories-cards {
+    gap: 20px;
+  }
+  .home-categories-root .categories-cards .category-card {
+    width: 300px;
+  }
+}
+@media (max-width: 450px) {
+  .home-categories-root h2 {
+    font-size: 21px;
+  }
+  .home-categories-root .categories-cards .category-card {
+    width: 100%;
+  }
 }/*# sourceMappingURL=Categories.css.map */

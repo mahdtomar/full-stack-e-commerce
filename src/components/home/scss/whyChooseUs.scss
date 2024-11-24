@@ -35,3 +35,50 @@
         }
     }
 }
+@media (max-width: 900px) {
+    .why-choose-us-root {
+        margin-top: 100px;
+        flex-direction: column;
+        align-items: center;
+        gap: 26px;
+        > .flexv {
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .text {
+            text-align: center;
+            max-width: 60%;
+            h2 {
+                margin-bottom: 15px;
+            }
+        }
+        .why-choose-us-card {
+            width: 50%;
+            height: 140px;
+        }
+    }
+}
+@media (max-width: 500px) {
+    .why-choose-us-root {
+        margin-top: 50px;
+        flex-direction: column;
+        align-items: center;
+        gap: 26px;
+        > .flexv {
+            flex-direction: column;
+            width: 100%;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .text {
+            max-width: 80%;
+            h2 {
+                margin-bottom: 15px;
+            }
+        }
+        .why-choose-us-card {
+            width:100%;
+        }
+    }
+}

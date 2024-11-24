@@ -59,4 +59,46 @@
 }
 .navbar-root ul .nav-item.active::before {
   width: 100%;
+}
+.navbar-root .menu-icon {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .navbar-root .nav-search {
+    width: 250px;
+  }
+  .navbar-root ul {
+    gap: 15px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar-root .nav-search {
+    width: 200px;
+  }
+}
+@media (max-width: 450px) {
+  .navbar-root .nav-search {
+    display: none;
+  }
+  .navbar-root ul {
+    flex-direction: column;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    align-items: flex-start;
+    display: none;
+  }
+  .navbar-root ul a {
+    text-align: left;
+  }
+  .navbar-root .menu-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+  .navbar-root .menu-icon img {
+    width: 30px;
+    aspect-ratio: 1/1;
+  }
 }/*# sourceMappingURL=navbar.css.map */

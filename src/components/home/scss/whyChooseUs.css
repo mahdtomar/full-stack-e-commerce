@@ -34,4 +34,52 @@
 }
 .why-choose-us-root .why-choose-us-card:hover {
   box-shadow: 4px 8px 4px 2px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 900px) {
+  .why-choose-us-root {
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+  .why-choose-us-root > .flexv {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .why-choose-us-root .text {
+    text-align: center;
+    max-width: 60%;
+  }
+  .why-choose-us-root .text h2 {
+    margin-bottom: 15px;
+  }
+  .why-choose-us-root .why-choose-us-card {
+    width: 50%;
+    height: 140px;
+  }
+}
+@media (max-width: 500px) {
+  .why-choose-us-root {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+  .why-choose-us-root > .flexv {
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .why-choose-us-root .text {
+    max-width: 80%;
+  }
+  .why-choose-us-root .text h2 {
+    margin-bottom: 15px;
+  }
+  .why-choose-us-root .why-choose-us-card {
+    width: 100%;
+  }
 }/*# sourceMappingURL=whyChooseUs.css.map */

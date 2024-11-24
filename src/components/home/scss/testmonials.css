@@ -7,13 +7,17 @@
 }
 .testmonials-home-root .container {
   gap: 18px;
+  height: -moz-max-content;
+  height: max-content;
 }
 .testmonials-home-root .container .testmonial-card {
   border: 2px solid black;
   position: relative;
   padding: 9px;
   border-radius: 8px;
-  height: 210px;
+  min-height: 100%;
+  height: -moz-max-content;
+  height: max-content;
   width: 372px;
 }
 .testmonials-home-root .container .testmonial-card .user-image {
@@ -40,4 +44,21 @@
 }
 .testmonials-home-root .cta p {
   margin-bottom: 15px;
+}
+
+@media (max-width: 850px) {
+  .testmonials-home-root {
+    margin: 80px auto;
+  }
+  .testmonials-home-root h2 {
+    margin-bottom: 50px;
+  }
+  .testmonials-home-root .container {
+    display: block;
+    width: 100%;
+  }
+  .testmonials-home-root .container .testmonial-card {
+    width: 100%;
+    margin: 50px 0px;
+  }
 }/*# sourceMappingURL=testmonials.css.map */

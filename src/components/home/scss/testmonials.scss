@@ -1,43 +1,61 @@
 .testmonials-home-root {
-  margin: 100px auto;
-  h2 {
-    text-align: center;
-    margin-bottom: 72px;
-  }
-  .container {
-    gap: 18px;
-    .testmonial-card {
-      border: 2px solid black;
-      position: relative;
-      padding: 9px;
-      border-radius: 8px;
-      height: 210px;
-      width: 372px;
-      .user-image {
-        position: absolute;
-        left: 10px;
-        top: 0px;
-        transform: translateY(-50%);
-        outline: 3px solid white;
-      }
-      .rating {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
-      .testmonial {
-        margin-top: 30px;
-        span {
-          font-weight: bold;
+    margin: 100px auto;
+    h2 {
+        text-align: center;
+        margin-bottom: 72px;
+    }
+    .container {
+        gap: 18px;
+        height: max-content;
+        .testmonial-card {
+            border: 2px solid black;
+            position: relative;
+            padding: 9px;
+            border-radius: 8px;
+            min-height: 100%;
+            height: max-content;
+            width: 372px;
+            .user-image {
+                position: absolute;
+                left: 10px;
+                top: 0px;
+                transform: translateY(-50%);
+                outline: 3px solid white;
+            }
+            .rating {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            .testmonial {
+                margin-top: 30px;
+                span {
+                    font-weight: bold;
+                }
+            }
         }
-      }
     }
-  }
-  .cta{
-    margin: 30px auto;
-    text-align: center;
-    p{
-        margin-bottom: 15px;
+    .cta {
+        margin: 30px auto;
+        text-align: center;
+        p {
+            margin-bottom: 15px;
+        }
     }
-  }
+}
+@media (max-width: 850px) {
+    .testmonials-home-root {
+        margin: 80px auto;
+        h2 {
+            margin-bottom:50px;
+        }
+        .container {
+            display: block;
+            width: 100%;
+            .testmonial-card {
+                width: 100%;
+                margin: 50px 0px;
+            }
+        }
+    }
 }
