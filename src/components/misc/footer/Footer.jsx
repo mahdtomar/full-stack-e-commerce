@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import whatsapp from './../../assets/icons/WhatsappLogo.svg'
-import linkedIn from './../../assets/icons/LinkedinLogo.svg'
-import github from './../../assets/icons/brand-github.svg'
+import whatsapp from './../../../assets/icons/WhatsappLogo.svg'
+import linkedIn from './../../../assets/icons/LinkedinLogo.svg'
+import github from './../../../assets/icons/brand-github.svg'
 import './scss/footer.css'
 import NavItem from "../navbar/NavItem"
 const Footer = () => {

@@ -1,4 +1,4 @@
-import Navbar from './components/navbar/Navbar'
+import Navbar from './components/misc/navbar/Navbar'
 import Router from './Router'
 
 function App() {

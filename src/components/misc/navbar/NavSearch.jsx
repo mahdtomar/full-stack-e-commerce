@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import magnifyingGlass from './../../assets/icons/MagnifyingGlass.svg'
+import magnifyingGlass from './../../../assets/icons/MagnifyingGlass.svg'
 const NavSearch = () => {
     const searchRef = useRef(null)
     const search = () => {

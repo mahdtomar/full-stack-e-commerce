@@ -1,0 +1,10 @@
+.productPages-root h1 {
+  text-align: center;
+  margin: 30px 0px;
+}
+.productPages-root .products-container {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 21px 58px;
+  margin-bottom: 30px;
+}/*# sourceMappingURL=ProductPages.css.map */

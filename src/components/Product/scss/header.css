@@ -1,0 +1,94 @@
+.product-header-root .container {
+  margin: 30px auto;
+  gap: 20px;
+  align-items: flex-start;
+}
+.product-header-root .container .info {
+  width: 50%;
+  align-items: flex-start;
+}
+.product-header-root .container .info .price-rating {
+  align-items: center;
+  justify-content: space-between;
+  width: 440px;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.product-header-root .container .info .price-rating .price-container {
+  position: relative;
+  gap: 5px;
+}
+.product-header-root .container .info .price-rating .price-container .discount {
+  position: relative;
+  bottom: 5px;
+  flex-direction: row-reverse;
+}
+.product-header-root .container .info .price-rating .price-container .discount .old-price {
+  color: #595959;
+  text-decoration: line-through;
+}
+.product-header-root .container .info .price-rating .price-container .discount .discount-percentage {
+  font-weight: bold;
+  color: var(--green);
+}
+.product-header-root .container .info .price-rating .price-container .price-tag {
+  font-size: 30px;
+  font-weight: bold;
+}
+.product-header-root .container .info .price-rating .rating {
+  gap: 3px;
+}
+.product-header-root .container .info h1 {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-header-root .container .info p {
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-header-root .container .info .cta {
+  gap: 15px;
+}
+.product-header-root .container .info .cta .primary {
+  font-size: 25px;
+  width: 350px;
+  height: 75px;
+}
+.product-header-root .container .info .cta .favorit {
+  background-color: white;
+  width: 75px;
+  height: 75px;
+}
+.product-header-root .container .info .cta .favorit svg {
+  height: 75px;
+  width: 75px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.1s ease-in-out;
+}
+.product-header-root .container .info .cta .favorit svg:hover {
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.25);
+}
+.product-header-root .container .gallery {
+  width: 50%;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 459px;
+}
+.product-header-root .container .gallery img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=header.css.map */

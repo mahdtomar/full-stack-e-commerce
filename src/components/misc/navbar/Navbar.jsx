@@ -1,12 +1,12 @@
 import NavItem from "./NavItem"
 import NavSearch from "./NavSearch"
-import cart from './../../assets/icons/ShoppingCartSimple.svg'
+import cart from './../../../assets/icons/ShoppingCartSimple.svg'
 import './scss/navbar.css'
-import menuIcon from './../../assets/icons/menu-2.svg'
+import menuIcon from './../../../assets/icons/menu-2.svg'
 const Navbar = () => {
     const navigationLinks = [
         { name: "home", path: "/", state: {}, className: "active" },
-        { name: "sales", path: "/sales", state: {}, className: "" },
+        { name: "store", path: "/store", state: {}, className: "" },
         { name: "Contact Us", path: "/contact-us", state: {}, className: "" },
     ]
     return (

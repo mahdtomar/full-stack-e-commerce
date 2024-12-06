@@ -1,0 +1,98 @@
+.product-header-root {
+    .container {
+        margin: 30px auto;
+        gap: 20px;
+        align-items: flex-start;
+        .info {
+            width: 50%;
+            align-items: flex-start;
+            .price-rating {
+                align-items: center;
+                justify-content: space-between;
+                width: 440px;
+                gap: 30px;
+                margin-top: 30px;
+                margin-bottom: 15px;
+                .price-container {
+                    position: relative;
+                    gap: 5px;
+                    .discount {
+                        position: relative;
+                        bottom: 5px;
+                        flex-direction: row-reverse;
+                        .old-price {
+                            color: #595959;
+                            text-decoration: line-through;
+                        }
+                        .discount-percentage {
+                            font-weight: bold;
+                            color: var(--green);
+                        }
+                    }
+                    .price-tag {
+                        font-size: 30px;
+                        font-weight: bold;
+                    }
+                }
+                .rating {
+                    gap: 3px;
+                }
+            }
+            h1 {
+                margin-bottom: 15px;
+                display: -webkit-box;
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            p {
+                display: -webkit-box;
+                line-clamp: 5;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .cta {
+                gap: 15px;
+                .primary {
+                    font-size: 25px;
+                    width: 350px;
+                    height: 75px;
+                }
+                .favorit {
+                    background-color: white;
+                    width: 75px;
+                    height: 75px;
+                    svg {
+                        height: 75px;
+                        width: 75px;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0px 0px 5px 0px
+                            rgba($color: #000000, $alpha: 0.25);
+                        transition: box-shadow 0.1s ease-in-out;
+                        &:hover {
+                            box-shadow: 0px 0px 6px 1px
+                                rgba($color: #000000, $alpha: 0.25);
+                        }
+                    }
+                }
+            }
+        }
+        .gallery {
+            width: 50%;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 459px;
+            img {
+                display: block;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

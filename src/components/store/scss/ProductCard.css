@@ -1,0 +1,61 @@
+.product-card {
+  width: 218px;
+  height: 452px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: stretch;
+  font-family: inherit;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.product-card:hover {
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+.product-card p {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: inherit;
+}
+.product-card .image-container {
+  width: 198px;
+}
+.product-card .image-container img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product-card .price-container {
+  justify-content: flex-start;
+  gap: 0px;
+  font-size: 18px;
+  position: relative;
+  font-family: "poppins";
+}
+.product-card .price-container .price-tag {
+  font-weight: bold;
+}
+.product-card .price-container .discount {
+  flex-direction: row-reverse;
+  position: relative;
+  bottom: 4px;
+}
+.product-card .price-container .discount .old-price {
+  text-decoration: line-through;
+  color: #6e6e6e;
+  font-size: 12px;
+}
+.product-card .price-container .discount .discount-percentage {
+  font-size: 14px;
+  color: #16bf00;
+  font-weight: 900;
+}
+.product-card button {
+  width: 100%;
+}/*# sourceMappingURL=ProductCard.css.map */
