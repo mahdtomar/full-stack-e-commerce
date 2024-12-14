@@ -3,7 +3,7 @@ import './scss/ProductCard.css'
 const ProductCard = ({ title, img, price, discount, }) => {
 
     return (
-        <Link to={`${title}`}>
+        <Link to={`/store/${title}`}>
             <div className="product-card flexv">
                 <div className='image-container'>
                     <img src={img} alt={title} />

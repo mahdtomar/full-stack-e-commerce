@@ -1,32 +1,48 @@
-import React from 'react'
+import user1 from './../../assets/images/user-1.png'
+import user2 from './../../assets/images/user-2.png'
+import user3 from './../../assets/images/user-3.png'
 import CommentCard from './CommentCard'
+import './scss/Comments.css'
 
 const Comments = () => {
     const comments = [
         {
-            img:"",
+            img: user1,
             customerName: "Michael Brown",
             rating: 5,
             comment: "Absolutely love this product! The quality exceeded my expectations, and the delivery was super quick. Highly recommend it!",
             date: "October 10, 2024"
         },
         {
-            img:"",
+            img: user2,
             customerName: "James P.",
             rating: 4,
             comment: "Great value for money. The item works as described, but I wish it came in more color options.",
             date: "July 21, 2024"
         },
+        {
+            img: user3,
+            customerName: "Sarah L.",
+            rating: 4.3,
+            comment: "Good product overall. I deducted one star because it took a bit longer than expected to arrive.",
+            date: "Jan 13, 2024"
+        },
     ]
     return (
         <div className={'product-comments-root'}>
             <h2>Comments</h2>
-            {comments.map(({ img, customerName, rating, comment, date }) => <CommentCard
-                img={img}
-                customerName={customerName}
-                rating={rating}
-                comment={comment}
-                date={date} />)}
+            <div className="container flexv">
+                {comments.map(({ img, customerName, rating, comment, date }) => <CommentCard
+                    img={img}
+                    customerName={customerName}
+                    rating={rating}
+                    comment={comment}
+                    date={date} />)}
+                <div className="cta flex2">
+                    <button className="primary">Review All Comments</button>
+                    <button className="secondary">Add A Comment</button>
+                </div>
+            </div>
         </div>
     )
 }
