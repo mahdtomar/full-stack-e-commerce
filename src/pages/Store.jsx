@@ -5,6 +5,7 @@ import ProductPages from "../components/store/ProductPages"
 const Store = () => {
     return (
         <>
+            <Navbar />
             <FiltersBar />
             <ProductPages />
             <Footer />
