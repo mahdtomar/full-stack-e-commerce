@@ -5,6 +5,7 @@ import SingleProduct from "./pages/SingleProduct"
 import Login from "./pages/Login"
 import RegistrationForm from "./components/login/RegistrationForm"
 import LoginForm from "./components/login/LoginForm"
+import AddProduct from "./pages/AddProduct"
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/store/:id" element={<SingleProduct />} />
+            <Route path="/add-product" element={<AddProduct />} />
         </Routes>
     )
 }

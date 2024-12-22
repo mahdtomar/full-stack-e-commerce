@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 
 const LoginForm = () => {
@@ -6,7 +7,11 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(email, password)
-        const res = await fetch("/localhost:9000/login")
+        const { data } = await axios.post("http://localhost:9000/login", {
+            email: email,
+            password: password,
+        })
+        console.log(data)
     }
     return (
         <div>
@@ -15,7 +20,7 @@ const LoginForm = () => {
             <form>
                 <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
                 <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
-                <button type="submit" onClick={e=>handleSubmit(e)}>Login</button>
+                <button type="submit" onClick={e => handleSubmit(e)}>Login</button>
             </form>
         </div>
     )

@@ -1,4 +1,5 @@
 import Footer from "../components/misc/footer/Footer"
+import Navbar from "../components/misc/navbar/Navbar"
 import Comments from "../components/Product/Comments"
 import Description from "../components/Product/Description"
 import Header from "../components/Product/Header"
