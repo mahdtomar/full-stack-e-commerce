@@ -1,17 +1,16 @@
 import axios from "axios"
 import { useState } from "react"
+import Request from "../../Api/Axios"
+import log from "../../util/Log"
 
 const LoginForm = () => {
     const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [userpassword, setUserPassword] = useState("")
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(email, password)
-        const { data } = await axios.post("http://localhost:9000/login", {
-            email: email,
-            password: password,
-        })
-        console.log(data)
+        console.log(email, userpassword)
+        const data = await Request("/login", "POST", true, undefined, undefined, JSON.stringify({ email: email, password: userpassword }))
+        log('user data', data)
     }
     return (
         <div>
@@ -19,7 +18,7 @@ const LoginForm = () => {
             <p>Login</p>
             <form>
                 <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                <input type="password" name="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+                <input type="password" name="password" id="password" value={userpassword} onChange={e => setUserPassword(e.target.value)} />
                 <button type="submit" onClick={e => handleSubmit(e)}>Login</button>
             </form>
         </div>
