@@ -1,1 +1,121 @@
-/*# sourceMappingURL=productform.css.map */
+.add-product-form input,
+.add-product-form textarea {
+  padding: 4px;
+  direction: rtl;
+  font-size: 1.1rem;
+}
+.add-product-form input:focus,
+.add-product-form textarea:focus {
+  outline: none;
+}
+.add-product-form .header {
+  margin-top: 70px;
+}
+.add-product-form .header .image-input {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+}
+.add-product-form .header .image-input p.hidden {
+  display: none;
+}
+.add-product-form .header .image-input input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  opacity: 0;
+}
+.add-product-form .header .image-input img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0;
+}
+.add-product-form .header .image-input img.visible {
+  opacity: 1;
+}
+.add-product-form .header .info {
+  width: calc(100% - 400px);
+}
+.add-product-form .header .info > label {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.add-product-form .header .info > label .full {
+  width: 100%;
+}
+.add-product-form .header .info > label span {
+  width: -moz-fit-content;
+  width: fit-content;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+.add-product-form .header .info > label textarea {
+  height: 100px;
+}
+.add-product-form .header .info > label input,
+.add-product-form .header .info > label textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+  overflow: auto;
+}
+.add-product-form .header .info .cost-category {
+  margin-top: 25px;
+}
+.add-product-form .header .info .cost-category label {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+.add-product-form .header .info .cost-category label span {
+  display: inline;
+  text-transform: capitalize;
+}
+.add-product-form .header .info .cost-category label input {
+  display: inline;
+  border: none;
+  width: 100px;
+  border-bottom: 2px solid black;
+}
+.add-product-form .header .info .cost-category .category {
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+.add-product-form .header .info .cost-category .category span {
+  text-transform: capitalize;
+}
+.add-product-form .header .info .cost-category .category p {
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 2px solid black;
+}
+.add-product-form .description > span {
+  text-align: center;
+  display: block;
+  margin: 25px auto;
+}
+.add-product-form .save {
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  margin: 25px 0px;
+}/*# sourceMappingURL=productform.css.map */

@@ -1,0 +1,122 @@
+.add-product-form {
+    input,
+    textarea {
+        padding: 4px;
+        direction: rtl;
+        font-size: 1.1rem;
+        &:focus {
+            outline: none;
+        }
+    }
+    .header {
+        margin-top: 70px;
+        .image-input {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            p.hidden {
+                display: none;
+            }
+            input {
+                appearance: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 2;
+                opacity: 0;
+            }
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                z-index: 1;
+                object-fit: cover;
+                opacity: 0;
+                &.visible {
+                    opacity: 1;
+                }
+            }
+        }
+        .info {
+            width: calc(100% - 400px);
+            
+            > label {
+                .full {
+                    width: 100%;
+                }
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-end;
+
+                span {
+                    width: fit-content;
+                    text-transform: capitalize;
+                    margin-bottom: 5px;
+                }
+                textarea {
+                    height: 100px;
+                }
+                input,
+                textarea {
+                    display: block;
+                    width: 100%;
+                    resize: none;
+                    overflow: auto;
+                }
+            }
+            .cost-category {
+                margin-top: 25px;
+                label {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    gap: 5px;
+                    span {
+                        display: inline;
+                        text-transform: capitalize;
+                    }
+                    input {
+                        display: inline;
+                        border: none;
+                        width: 100px;
+                        border-bottom: 2px solid black;
+                    }
+                }
+                .category {
+                    flex-direction: row-reverse;
+                    gap: 5px;
+                    span {
+                        text-transform: capitalize;
+                    }
+                    p {
+                        width: 100px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        border-bottom: 2px solid black;
+                    }
+                }
+            }
+        }
+    }
+    .description {
+        > span {
+            text-align: center;
+            display: block;
+            margin: 25px auto;
+        }
+    }
+    .save {
+        justify-content: flex-end;
+        font-size: 1.2rem;
+        margin: 25px 0px;
+    }
+}

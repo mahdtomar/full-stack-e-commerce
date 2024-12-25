@@ -81,19 +81,25 @@ const ProductPages = () => {
         const res = await Request("/products-count", "GET", true)
         setTotalProducts(res.data)
     }
+
     useEffect(() => { getProducts(); getProductsCount(); }, [])
+
+
     return (
         <div className="productPages-root">
             <div className="container">
                 <h1>Shop All Products</h1>
                 <div className="products-container flex2">
-                    {products.map(({ title, image, price, discount, }, i) => {
-                        return <ProductCard key={i} title={title} img={image} price={price} discount={discount} />
+                    {products.map(({ title, image, salePrice, discount, }, i) => {
+                        return <ProductCard key={i} title={title} img={image} price={salePrice} discount={discount} />
                     })}
+                    {/* {test_products.map(({ title, img, price, discount, }, i) => {
+                        return <ProductCard key={i} title={title} img={img} price={price} discount={discount} />
+                    })} */}
                 </div>
                 <div className="pagination">
                     {Array((Math.ceil(totalProducts / productsCount))).fill(1).map((e, i) => {
-                        return <span onClick={() => { getProducts(i + 1) }}>{i + 1}</span>
+                        return <span key={i} onClick={() => { getProducts(i + 1) }}>{i + 1}</span>
                     })}
                 </div>
             </div>

@@ -1,6 +1,6 @@
 .product-card {
   width: 218px;
-  height: 452px;
+  height: 420px;
   border: 1px solid black;
   border-radius: 8px;
   padding: 20px 10px;
@@ -28,6 +28,8 @@
 .product-card .image-container img {
   display: block;
   width: 100%;
+  height: 223px;
+  border-radius: 8px;
   -o-object-fit: cover;
      object-fit: cover;
 }
