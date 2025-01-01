@@ -7,4 +7,24 @@
   justify-content: flex-start;
   gap: 21px 58px;
   margin-bottom: 30px;
+}
+.productPages-root .pagination {
+  margin: 30px auto;
+  justify-content: center;
+  gap: 20px;
+}
+.productPages-root .pagination span {
+  background-color: #eee;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+}
+.productPages-root .pagination span:hover, .productPages-root .pagination span.current {
+  background-color: #bbb;
+  font-weight: bold;
 }/*# sourceMappingURL=ProductPages.css.map */
