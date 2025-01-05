@@ -9,8 +9,8 @@ const RegistrationForm = () => {
         const body = {
             name: username,
             email: email,
-            password, password,
-            user_type:"customer"
+            password: password,
+            user_type: "customer"
         }
         console.log(body)
         const res = await fetch("http://localhost:9000/register", {

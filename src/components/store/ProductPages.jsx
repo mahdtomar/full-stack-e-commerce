@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import Request from '../../Api/Axios'
 import productImage from './../../assets/images/test-product.png'
 import ProductCard from './ProductCard'
 import './scss/ProductPages.css'
 import log from '../../util/Log'
+import { storeFiltersContext } from './../../context/StoreFiltersContext'
 const ProductPages = () => {
     // const test_products = [
     //     {
@@ -72,19 +73,23 @@ const ProductPages = () => {
     const productsCount = 20
     const [products, setProducts] = useState([])
     const [totalProducts, setTotalProducts] = useState(0)
+    const { sort, setSort } = useContext(storeFiltersContext)
+
     const getProducts = async (page, sort) => {
-        const res = await Request("/products", "GET", true, { limit: productsCount, page: page || 1 })
+        const res = await Request("/products", "GET", true, { limit: productsCount, page: page || 1, sort: sort })
         setCurrentPage(page || 1)
         log("products", res.data)
         setProducts(res.data)
         headerRef.current.scrollIntoView({ behavior: "smooth", })
     }
+
     const getProductsCount = async () => {
         const res = await Request("/products-count", "GET", true)
         setTotalProducts(res.data)
     }
 
     useEffect(() => { getProducts(); getProductsCount(); }, [])
+    useEffect(() => { getProducts(currentPage, sort); }, [sort])
 
 
     return (
@@ -101,7 +106,7 @@ const ProductPages = () => {
                 </div>
                 <div className="pagination flex2" >
                     {Array((Math.ceil(totalProducts / productsCount))).fill(1).map((e, i) => {
-                        console.log(currentPage, i)
+                        // console.log(currentPage, i)
                         return <span key={i} onClick={() => { getProducts(i + 1) }} className={currentPage === i + 1 ? "current" : ""
                         }> {i + 1}</span>
                     })}

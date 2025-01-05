@@ -1,10 +1,10 @@
-import { createContext } from 'react'
+import { createContext, useState } from 'react'
 
-const StoreFiltersContext = (children) => {
-    const storeFiltersContext = createContext({})
-    const [filters, setFilters] = useState(false)
-    const [sort, setSort] = useState(false)
-    const [category, setCategory] = useState(false)
+export const storeFiltersContext = createContext({})
+const StoreFiltersContextProvider = ({ children }) => {
+    const [filters, setFilters] = useState('')
+    const [sort, setSort] = useState('')
+    const [category, setCategory] = useState('')
     return (
         <storeFiltersContext.Provider value={{
             filters,
@@ -13,8 +13,10 @@ const StoreFiltersContext = (children) => {
             setSort,
             category,
             setCategory,
-        }}>{children}</storeFiltersContext.Provider>
+        }}>
+            {children}
+        </storeFiltersContext.Provider>
     )
 }
 
-export default StoreFiltersContext
+export default StoreFiltersContextProvider
