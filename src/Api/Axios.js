@@ -18,7 +18,6 @@ const Request = async (
         params: params,
         data: body,
         withCredentials: credentials || false,
-        // timeout: 5000, // Timeout in milliseconds
     };
     try {
         const res = await axios(config);

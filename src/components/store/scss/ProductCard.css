@@ -24,6 +24,7 @@
 }
 .product-card .image-container {
   width: 198px;
+  position: relative;
 }
 .product-card .image-container img {
   display: block;

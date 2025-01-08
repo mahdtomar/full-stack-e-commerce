@@ -75,7 +75,8 @@ const ProductPages = () => {
     const [totalProducts, setTotalProducts] = useState(0)
     const { sort, setSort } = useContext(storeFiltersContext)
 
-    const getProducts = async (page, sort) => {
+    const getProducts = async (page, sort = "new-arrivals") => {
+        setProducts([]);
         const res = await Request("/products", "GET", true, { limit: productsCount, page: page || 1, sort: sort })
         setCurrentPage(page || 1)
         log("products", res.data)
@@ -89,7 +90,7 @@ const ProductPages = () => {
     }
 
     useEffect(() => { getProducts(); getProductsCount(); }, [])
-    useEffect(() => { getProducts(currentPage, sort); }, [sort])
+    useEffect(() => { getProducts(currentPage, sort); console.log(sort) }, [sort])
 
 
     return (
@@ -107,8 +108,11 @@ const ProductPages = () => {
                 <div className="pagination flex2" >
                     {Array((Math.ceil(totalProducts / productsCount))).fill(1).map((e, i) => {
                         // console.log(currentPage, i)
-                        return <span key={i} onClick={() => { getProducts(i + 1) }} className={currentPage === i + 1 ? "current" : ""
-                        }> {i + 1}</span>
+                        return <span key={i}
+                            onClick={() => { getProducts(i + 1, sort) }}
+                            aria-label={`Go to page ${i + 1}`}
+                            className={currentPage === i + 1 ? "current" : ""
+                            }> {i + 1}</span>
                     })}
                 </div>
             </div>

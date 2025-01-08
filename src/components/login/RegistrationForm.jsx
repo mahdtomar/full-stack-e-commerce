@@ -1,4 +1,5 @@
 import { useState } from "react"
+import log from "../../util/Log"
 
 const RegistrationForm = () => {
     const [email, setEmail] = useState("")
@@ -12,7 +13,7 @@ const RegistrationForm = () => {
             password: password,
             user_type: "customer"
         }
-        console.log(body)
+        log("body", body)
         const res = await fetch("http://localhost:9000/register", {
             body: JSON.stringify(body),
             method: "POST",
@@ -21,7 +22,7 @@ const RegistrationForm = () => {
             }
         })
         const data = await res.json()
-        console.log(data)
+        log("data", data)
     }
     return (
         <div>
