@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/full-stack-e-commerce" future={{
+  <BrowserRouter basename="/" future={{
     v7_startTransition: true,
   }}>
     <App />
