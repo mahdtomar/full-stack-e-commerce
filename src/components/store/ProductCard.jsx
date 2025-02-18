@@ -1,16 +1,21 @@
 import { Link } from 'react-router-dom'
 import './scss/ProductCard.css'
 import { useState } from 'react';
-const ProductCard = ({ title, img, price, discount, }) => {
+import { use } from 'react';
+const ProductCard = ({ title, img, price, discount, id }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
-
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setIsImageLoading(false)
+    //     }, 3000);
+    // }, [img])
     return (
-        <Link to={`/store/${title}`}>
+        <Link to={`/store/${title}`} state={{ productId: id }}>
             <div className="product-card flexv">
                 <div>
                     <div className='image-container'>
                         {/* Placeholder or Spinner */}
-                        {isImageLoading && (
+                        {isImageLoading && img && (
                             <div
                                 className="placeholder"
                                 style={{
@@ -28,6 +33,7 @@ const ProductCard = ({ title, img, price, discount, }) => {
                                 Loading...
                             </div>
                         )}
+                        {!img && <div className="placeholder" style={{ background: "#f0f0f0" }}>No Image</div>}
                         <img src={img} alt={title} onLoad={() => { setIsImageLoading(false) }} />
                     </div>
                     <p className="title">{title}</p>
@@ -42,7 +48,7 @@ const ProductCard = ({ title, img, price, discount, }) => {
                     </div>
                     <button className="primary">Add To Cart</button></div>
             </div>
-        </Link>
+        </Link >
     )
 }
 

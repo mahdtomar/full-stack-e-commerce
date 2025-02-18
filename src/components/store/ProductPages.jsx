@@ -74,14 +74,22 @@ const ProductPages = () => {
     const [products, setProducts] = useState([])
     const [totalProducts, setTotalProducts] = useState(0)
     const { sort, setSort } = useContext(storeFiltersContext)
-
+    const [error, setError] = useState(false)
     const getProducts = async (page, sort = "new-arrivals") => {
-        setProducts([]);
-        const res = await Request("/products", "GET", true, { limit: productsCount, page: page || 1, sort: sort })
-        setCurrentPage(page || 1)
-        log("products", res.data)
-        setProducts(res.data)
-        headerRef.current.scrollIntoView({ behavior: "smooth", })
+        try {
+            setProducts([]);
+            const res = await Request("/products", "GET", true, { limit: productsCount, page: page || 1, sort: sort })
+            if (res.error) {
+                setError(true)
+                return
+            }
+            setCurrentPage(page || 1)
+            log("products", res.data)
+            setProducts(res.data)
+            headerRef?.current.scrollIntoView({ behavior: "smooth", })
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     const getProductsCount = async () => {
@@ -92,21 +100,24 @@ const ProductPages = () => {
     useEffect(() => { getProducts(); getProductsCount(); }, [])
     useEffect(() => { getProducts(currentPage, sort); console.log(sort) }, [sort])
 
-
     return (
         <div className="productPages-root">
             <div className="container">
                 <h1 ref={headerRef}>Shop All Products</h1>
                 <div className="products-container flex2">
-                    {products.map(({ title, image, salePrice, discount, }, i) => {
-                        return <ProductCard key={i} title={title} img={image} price={salePrice} discount={discount} />
+                    {products?.map((product, i) => {
+                        return <ProductCard key={i} title={product.title} img={product.image} price={product.salePrice} discount={product.discount} id={product._id} />
                     })}
                     {/* {test_products.map(({ title, img, price, discount, }, i) => {
                         return <ProductCard key={i} title={title} img={img} price={price} discount={discount} />
                     })} */}
                 </div>
                 <div className="pagination flex2" >
-                    {Array((Math.ceil(totalProducts / productsCount))).fill(1).map((e, i) => {
+                    {error && <div>
+                        <p>There was an error fetching products. Please try again later.</p>
+                        <p>if the issue presist you can contact us at <a href="mailto:omarmahdyq@gmail.com">omarmahdyq@gmail.com</a></p>
+                    </div>}
+                    {totalProducts > 0 && Array((Math.ceil(totalProducts / productsCount))).fill(1).map((e, i) => {
                         // console.log(currentPage, i)
                         return <span key={i}
                             onClick={() => { getProducts(i + 1, sort) }}

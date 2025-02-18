@@ -1,13 +1,13 @@
 import HeartIcon from './HeartIcon'
 import './scss/header.css'
 import RatingParser from '../../util/RatingParser'
-const Header = ({ title, image, description, price, discount, rating }) => {
+const Header = ({ title, image, briefDescription, price, discount, rating }) => {
     return (
         <div className="product-header-root">
             <div className="container flex2">
                 <div className="info flexv">
                     <h1>{title}</h1>
-                    <p>{description}</p>
+                    <p>{briefDescription}</p>
                     <div className="price-rating flex2">
                         <div className="price-container flex2">
                             {discount && <div className='discount flex2'>

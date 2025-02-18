@@ -1,0 +1,33 @@
+.single-product-page-description-container {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+  height: auto;
+}
+.single-product-page-description-container p::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50px;
+  background-image: linear-gradient(0deg, white, transparent);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2;
+}
+.single-product-page-description-container button {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  z-index: 4;
+  transform: translateX(-50%);
+}
+.single-product-page-description-container.show {
+  padding-bottom: 50px;
+  max-height: none;
+  overflow: visible;
+}
+.single-product-page-description-container.show button {
+  top: calc(100% - 40px);
+  display: block;
+}/*# sourceMappingURL=singleproduct.css.map */

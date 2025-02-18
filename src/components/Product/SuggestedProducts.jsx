@@ -1,7 +1,11 @@
+import { useEffect } from 'react'
+import Request from '../../Api/Axios'
+import log from '../../util/Log'
 import ProductCard from '../store/ProductCard'
 import productImage from './../../assets/images/test-product.png'
 import './scss/SuggestedProducts.css'
-const SuggestedProducts = () => {
+const SuggestedProducts = ({ category }) => {
+    log("suggestion category is :", category)
     const test_products = [
         {
             title: "Grey Nike running sneakers testing to see if the font will fit 2 lines",
@@ -28,12 +32,20 @@ const SuggestedProducts = () => {
             discount: "",
         },
     ]
+    const getSuggestedProducts = async (category) => {
+        const products = await Request("/suggestions", "GET", false, { targetCategory: category })
+        console.log(products)
+    }
+    useEffect(() => {
+        getSuggestedProducts(category);
+        console.log("render")
+    }, [])
     return (
         <div className='product-suggested-products flexv'>
             <h2>Browse More Products From The same category</h2>
             <div className="container flex2">
-                {test_products.map(({ title, img, price, discount, }) => {
-                    return <ProductCard title={title} img={img} price={price} discount={discount} />
+                {test_products.map(({ title, img, price, discount, }, i) => {
+                    return <ProductCard key={i} title={title} img={img} price={price} discount={discount} />
                 })}
             </div>
             <button className="primary">View More</button>

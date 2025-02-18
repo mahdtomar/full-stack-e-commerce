@@ -32,7 +32,8 @@ const Comments = () => {
         <div className={'product-comments-root'}>
             <h2>Comments</h2>
             <div className="container flexv">
-                {comments.map(({ img, customerName, rating, comment, date }) => <CommentCard
+                {comments.map(({ img, customerName, rating, comment, date }, i) => <CommentCard
+                    key={i}
                     img={img}
                     customerName={customerName}
                     rating={rating}
