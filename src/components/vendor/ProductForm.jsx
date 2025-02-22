@@ -33,7 +33,7 @@ const ProductForm = () => {
         // for (const pair of formData.entries()) {
         //     log(undefined, `${pair[0]}: ${pair[1]}`);
         // }
-        const res = await Request("/products", "POST", true, undefined, { "content-type": "multipart/form-data" }, data)
+        const res = await Request("/products", "POST", false, undefined, { "content-type": "multipart/form-data" }, data)
         // const res = await Request("/products", "POST", true, undefined, {}, formData);
 
         log("add product", res)

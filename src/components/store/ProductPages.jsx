@@ -78,7 +78,7 @@ const ProductPages = () => {
     const getProducts = async (page, sort = "new-arrivals") => {
         try {
             setProducts([]);
-            const res = await Request("/products", "GET", true, { limit: productsCount, page: page || 1, sort: sort })
+            const res = await Request("/products", "GET", false, { limit: productsCount, page: page || 1, sort: sort })
             if (res.error) {
                 setError(true)
                 return
@@ -93,7 +93,7 @@ const ProductPages = () => {
     }
 
     const getProductsCount = async () => {
-        const res = await Request("/products-count", "GET", true)
+        const res = await Request("/products-count", "GET", false)
         setTotalProducts(res.data)
     }
 

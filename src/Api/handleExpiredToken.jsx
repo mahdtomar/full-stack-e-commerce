@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 const navigate = useNavigate()
-const handleExpiredToken = () => {
+const handleExpiredToken = ({errorMsg}) => {
+    
+ const handleToken = ()=>{
+        if(errorMsg==="login required"){
+            navigate("/login")
+        }
+    }
+    useEffect(()=>{
+        handleToken()
+    },[])
     return (
         <div>handleExpiredToken</div>
     )
-}
-
-export const handleToken = (errorMSG)=>{
-    if(errorMSG==="login required"){
-        navigate("/login")
-    }
 }
 export default handleExpiredToken

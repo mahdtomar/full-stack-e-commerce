@@ -15,7 +15,7 @@ const SingleProduct = () => {
     const [product, setProduct] = useState({})
     const [showDescription, setShowDescription] = useState(false)
     const getProductInfo = async () => {
-        const productDetails = await Request(`/product/${location.state?.productId}`, "GET", true)
+        const productDetails = await Request(`/product/${location.state?.productId}`, "GET", false)
         setProduct(productDetails.data)
         console.log(productDetails)
     }

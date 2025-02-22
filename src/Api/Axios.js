@@ -1,30 +1,41 @@
 import axios from "axios";
-const Request = async (
-    endpoint,
-    method,
-    credentials,
-    params = {},
-    headers,
-    body
-) => {
+import log from "../util/Log";
+
+// Utility functions to handle token storage in localStorage
+export const getAccessToken = () => localStorage.getItem("access_token") || "";
+export const setAccessToken = (token) => localStorage.setItem("access_token", token);
+
+// Create axios instance
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_BACKEND_URL,
+    headers: {
+        "Content-Type": "application/json",
+    },
+});
+
+const refreshErrors = ["refresh token expired", "login required", "refresh token not found"];
+
+// API Request Function
+const Request = async (endpoint, method, credentials, params = {}, headers = {}, body) => {
     const config = {
-        method: method,
-        url: `${import.meta.env.VITE_BACKEND_URL}${endpoint}`,
+        method,
+        url: endpoint,
         headers: {
-            "Content-Type": "application/json",
             ...headers,
+            Authorization: `Bearer ${getAccessToken()}`, // Always attach the token
         },
-        params: params,
+        params,
         data: body,
         withCredentials: credentials || false,
     };
+
     try {
-        const res = await axios(config);
-        if(res.message==="login required"){
-            handleToken("login required")
-        }
+        const res = await axiosInstance(config);
         return res.data;
     } catch (err) {
+        if (err.response?.data?.message === "login required") {
+            console.log("Login required");
+        }
         if (err.response) {
             console.error("Error response:", err.response.data);
             return err.response.data;
@@ -37,5 +48,43 @@ const Request = async (
         }
     }
 };
+
+// Request Interceptor - Attach Token
+axiosInstance.interceptors.request.use(
+    (config) => {
+        config.headers.Authorization = `Bearer ${getAccessToken()}`;
+        log("Request Headers:", config.headers);
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
+
+axiosInstance.interceptors.response.use(
+    (response) => response, 
+        async (error) => {
+        const originalRequest = error.config;
+        log("Error message:", error.response?.data?.message);
+        if (error.response?.status === 401 && !originalRequest._retry) {
+            originalRequest._retry = true; 
+            try {
+                const res = (await axios.post(`${import.meta.env.VITE_BACKEND_URL}/refresh`, {}, { withCredentials: true })).data;
+                log("accessToken", res.data)
+                if (res.data.accessToken) {
+                    setAccessToken(res.data.accessToken); 
+                    originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`;
+                    return axiosInstance(originalRequest); 
+                }
+            } catch (refreshError) {
+                if (refreshErrors.includes(refreshError.response?.data?.message)) {
+                    log("Login required");
+                    localStorage.setItem("redirectAfterLogin", window.location.pathname + window.location.search);
+                    location.href = "/login"; 
+                }
+                log("Refresh token request failed:", refreshError);
+            }
+        }
+        return Promise.reject(error);
+    }
+);
 
 export default Request;

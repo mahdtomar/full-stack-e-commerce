@@ -30,7 +30,7 @@ const Comments = () => {
         },
     ]
     const addComment = async()=>{
-        const res = await Request("/add-comment","POST",true,undefined,undefined,{})
+        const res = await Request("/add-comment","POST",false,undefined,undefined,{})
         console.log(res)
     }
     return (

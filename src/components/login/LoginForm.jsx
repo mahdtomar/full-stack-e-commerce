@@ -9,7 +9,12 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(email, userpassword)
-        const data = await Request("/login", "POST", true, undefined, undefined, JSON.stringify({ email: email, password: userpassword }))
+        const data = await Request("/login", "POST",true,undefined,undefined, JSON.stringify({ email: email, password: userpassword }))
+        if (data) {
+            localStorage.setItem('token', data.token)
+            const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
+            navigate(redirectPath);
+        }
         log('user data', data)
     }
     return (
