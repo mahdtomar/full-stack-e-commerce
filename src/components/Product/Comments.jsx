@@ -1,11 +1,13 @@
+import { useState } from 'react'
 import Request from '../../Api/Axios'
 import user1 from './../../assets/images/user-1.png'
 import user2 from './../../assets/images/user-2.png'
 import user3 from './../../assets/images/user-3.png'
 import CommentCard from './CommentCard'
+import RatingInput from './RatingInput'
 import './scss/Comments.css'
 
-const Comments = () => {
+const Comments = ({ productId }) => {
     const comments = [
         {
             img: user1,
@@ -29,27 +31,35 @@ const Comments = () => {
             date: "Jan 13, 2024"
         },
     ]
-    const addComment = async()=>{
-        const res = await Request("/add-comment","POST",false,undefined,undefined,{})
+    const [rating, setRating] = useState(3)
+    const addComment = async () => {
+        const payload = JSON.stringify({
+            product_id: productId
+        })
+        const res = await Request("/add-comment", "POST", false, undefined, undefined, payload)
+
         console.log(res)
     }
     return (
         <div className={'product-comments-root'}>
             <h2>Comments</h2>
             <div className="container flexv">
-                {comments.map(({ img, customerName, rating, comment, date }, i) => <CommentCard
-                    key={i}
-                    img={img}
-                    customerName={customerName}
-                    rating={rating}
-                    comment={comment}
-                    date={date} />)}
-                <div className="cta flex2">
+                <RatingInput setRating={setRating} rating={rating} />
+                {
+                    comments.map(({ img, customerName, rating, comment, date }, i) => <CommentCard
+                        key={i}
+                        img={img}
+                        customerName={customerName}
+                        rating={rating}
+                        comment={comment}
+                        date={date} />)
+                }
+                < div className="cta flex2">
                     <button className="primary">Review All Comments</button>
                     <button className="secondary" onClick={addComment}>Add A Comment</button>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

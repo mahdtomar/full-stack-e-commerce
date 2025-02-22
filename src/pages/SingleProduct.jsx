@@ -35,7 +35,7 @@ const SingleProduct = () => {
                 <button onClick={() => setShowDescription(curr => !curr)} className={'primary'}>Show More</button>
             </div>
             <SuggestedProducts category={product.category_id} />
-            <Comments />
+            <Comments productId={location.state?.productId} />
             <Footer />
         </>
     )

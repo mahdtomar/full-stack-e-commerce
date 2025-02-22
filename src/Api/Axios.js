@@ -3,7 +3,8 @@ import log from "../util/Log";
 
 // Utility functions to handle token storage in localStorage
 export const getAccessToken = () => localStorage.getItem("access_token") || "";
-export const setAccessToken = (token) => localStorage.setItem("access_token", token);
+export const setAccessToken = (token) =>
+    localStorage.setItem("access_token", token);
 
 // Create axios instance
 const axiosInstance = axios.create({
@@ -13,10 +14,21 @@ const axiosInstance = axios.create({
     },
 });
 
-const refreshErrors = ["refresh token expired", "login required", "refresh token not found"];
+const refreshErrors = [
+    "refresh token expired",
+    "login required",
+    "refresh token not found",
+];
 
 // API Request Function
-const Request = async (endpoint, method, credentials, params = {}, headers = {}, body) => {
+const Request = async (
+    endpoint,
+    method,
+    credentials,
+    params = {},
+    headers = {},
+    body
+) => {
     const config = {
         method,
         url: endpoint,
@@ -60,25 +72,36 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-    (response) => response, 
-        async (error) => {
+    (response) => response,
+    async (error) => {
         const originalRequest = error.config;
         log("Error message:", error.response?.data?.message);
         if (error.response?.status === 401 && !originalRequest._retry) {
-            originalRequest._retry = true; 
+            originalRequest._retry = true;
             try {
-                const res = (await axios.post(`${import.meta.env.VITE_BACKEND_URL}/refresh`, {}, { withCredentials: true })).data;
-                log("accessToken", res.data)
+                const res = (
+                    await axios.post(
+                        `${import.meta.env.VITE_BACKEND_URL}/refresh`,
+                        {},
+                        { withCredentials: true }
+                    )
+                ).data;
+                log("accessToken", res.data);
                 if (res.data.accessToken) {
-                    setAccessToken(res.data.accessToken); 
+                    setAccessToken(res.data.accessToken);
                     originalRequest.headers.Authorization = `Bearer ${res.data.accessToken}`;
-                    return axiosInstance(originalRequest); 
+                    return axiosInstance(originalRequest);
                 }
             } catch (refreshError) {
-                if (refreshErrors.includes(refreshError.response?.data?.message)) {
+                if (
+                    refreshErrors.includes(refreshError.response?.data?.message)
+                ) {
                     log("Login required");
-                    localStorage.setItem("redirectAfterLogin", window.location.pathname + window.location.search);
-                    location.href = "/login"; 
+                    localStorage.setItem(
+                        "redirectAfterLogin",
+                        window.location.pathname + window.location.search
+                    );
+                    location.href = "/login";
                 }
                 log("Refresh token request failed:", refreshError);
             }

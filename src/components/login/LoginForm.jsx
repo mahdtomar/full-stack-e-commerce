@@ -2,16 +2,20 @@ import axios from "axios"
 import { useState } from "react"
 import Request from "../../Api/Axios"
 import log from "../../util/Log"
-
+import { useNavigate } from "react-router-dom"
 const LoginForm = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [userpassword, setUserPassword] = useState("")
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(email, userpassword)
-        const data = await Request("/login", "POST",true,undefined,undefined, JSON.stringify({ email: email, password: userpassword }))
-        if (data) {
-            localStorage.setItem('token', data.token)
+        const res = await Request("/login", "POST", true, undefined, undefined, JSON.stringify({ email: email, password: userpassword }))
+        if (!res.data) {
+            console.log("stop here")
+            return
+        }
+        if (res) {
             const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
             navigate(redirectPath);
         }
