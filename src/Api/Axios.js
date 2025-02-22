@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const Request = async (
     endpoint,
     method,
@@ -21,6 +20,9 @@ const Request = async (
     };
     try {
         const res = await axios(config);
+        if(res.message==="login required"){
+            handleToken("login required")
+        }
         return res.data;
     } catch (err) {
         if (err.response) {

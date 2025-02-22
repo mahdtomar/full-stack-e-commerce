@@ -1,3 +1,4 @@
+import Request from '../../Api/Axios'
 import user1 from './../../assets/images/user-1.png'
 import user2 from './../../assets/images/user-2.png'
 import user3 from './../../assets/images/user-3.png'
@@ -28,6 +29,10 @@ const Comments = () => {
             date: "Jan 13, 2024"
         },
     ]
+    const addComment = async()=>{
+        const res = await Request("/add-comment","POST",true,undefined,undefined,{})
+        console.log(res)
+    }
     return (
         <div className={'product-comments-root'}>
             <h2>Comments</h2>
@@ -41,7 +46,7 @@ const Comments = () => {
                     date={date} />)}
                 <div className="cta flex2">
                     <button className="primary">Review All Comments</button>
-                    <button className="secondary">Add A Comment</button>
+                    <button className="secondary" onClick={addComment}>Add A Comment</button>
                 </div>
             </div>
         </div>
