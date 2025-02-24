@@ -1,0 +1,49 @@
+.product-page-add-comment {
+  width: 100%;
+}
+.product-page-add-comment .comment-card {
+  align-items: stretch;
+  gap: 15px;
+}
+.product-page-add-comment .comment-card .user-info {
+  gap: 15px;
+  height: 56px;
+  align-items: center;
+}
+.product-page-add-comment .comment-card .user-info .user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 3px solid black;
+}
+.product-page-add-comment .comment-card .user-info .rating-input-container {
+  height: 50%;
+}
+.product-page-add-comment .comment-card .user-info .rating-input-container svg {
+  cursor: pointer;
+}
+.product-page-add-comment .comment-card textarea {
+  font-family: inherit;
+  border: none;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  height: 120px;
+  padding: 6px;
+  border-radius: 8px;
+  resize: none;
+  font-size: 16px;
+  width: 100%;
+}
+.product-page-add-comment .comment-card textarea:focus {
+  outline: none;
+}
+.product-page-add-comment .rating-error {
+  border: 1px solid red;
+}
+.product-page-add-comment .rating-error svg path {
+  stroke: red;
+}
+.product-page-add-comment .comment-error {
+  border: 1px solid red;
+}/*# sourceMappingURL=addComment.css.map */

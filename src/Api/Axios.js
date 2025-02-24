@@ -76,7 +76,11 @@ axiosInstance.interceptors.response.use(
     async (error) => {
         const originalRequest = error.config;
         log("Error message:", error.response?.data?.message);
-        if (error.response?.status === 401 && !originalRequest._retry) {
+        if (
+            error.response?.status === 401 &&
+            !originalRequest._retry &&
+            refreshErrors.includes(error.response?.data?.message)
+        ) {
             originalRequest._retry = true;
             try {
                 const res = (
@@ -96,6 +100,7 @@ axiosInstance.interceptors.response.use(
                 if (
                     refreshErrors.includes(refreshError.response?.data?.message)
                 ) {
+                    console.log(refreshError.response?.data?.message);
                     log("Login required");
                     localStorage.setItem(
                         "redirectAfterLogin",

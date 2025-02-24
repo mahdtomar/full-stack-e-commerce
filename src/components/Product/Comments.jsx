@@ -6,6 +6,7 @@ import user3 from './../../assets/images/user-3.png'
 import CommentCard from './CommentCard'
 import RatingInput from './RatingInput'
 import './scss/Comments.css'
+import AddComment from './AddComment'
 
 const Comments = ({ productId }) => {
     const comments = [
@@ -31,20 +32,12 @@ const Comments = ({ productId }) => {
             date: "Jan 13, 2024"
         },
     ]
-    const [rating, setRating] = useState(3)
-    const addComment = async () => {
-        const payload = JSON.stringify({
-            product_id: productId
-        })
-        const res = await Request("/add-comment", "POST", false, undefined, undefined, payload)
 
-        console.log(res)
-    }
     return (
         <div className={'product-comments-root'}>
             <h2>Comments</h2>
             <div className="container flexv">
-                <RatingInput setRating={setRating} rating={rating} />
+                <AddComment productId={productId}/>
                 {
                     comments.map(({ img, customerName, rating, comment, date }, i) => <CommentCard
                         key={i}
@@ -56,7 +49,7 @@ const Comments = ({ productId }) => {
                 }
                 < div className="cta flex2">
                     <button className="primary">Review All Comments</button>
-                    <button className="secondary" onClick={addComment}>Add A Comment</button>
+                    {/* <button className="secondary" onClick={addComment}>Add A Comment</button> */}
                 </div>
             </div>
         </div >

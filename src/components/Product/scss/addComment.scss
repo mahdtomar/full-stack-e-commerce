@@ -1,0 +1,50 @@
+.product-page-add-comment {
+    width: 100%;
+    .comment-card {
+        align-items: stretch;
+        gap: 15px;
+        .user-info {
+            gap: 15px;
+            height: 56px;
+            align-items: center;
+            .user-avatar {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid black;
+            }
+            .rating-input-container {
+                height: 50%;
+                svg {
+                    cursor: pointer;
+                }
+            }
+        }
+        textarea {
+            font-family: inherit;
+            border: none;
+            box-shadow: 0px 0px 5px 0px rgba($color: #000000, $alpha: 0.3);
+            height: 120px;
+            padding: 6px;
+            border-radius: 8px;
+            resize: none;
+            font-size: 16px;
+            width: 100%;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .rating-error {
+        border: 1px solid red;
+        svg {
+            path {
+                stroke: red;
+            }
+        }
+    }
+    .comment-error {
+        border: 1px solid red;
+    }
+}

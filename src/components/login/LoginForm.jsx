@@ -15,11 +15,10 @@ const LoginForm = () => {
             console.log("stop here")
             return
         }
-        if (res) {
-            const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
-            navigate(redirectPath);
-        }
-        log('user data', data)
+        localStorage.setItem("user-info", JSON.stringify(res.data))
+        const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
+        log('user data', res.data)
+        navigate(!redirectPath || redirectPath === "/login" ? "/" : redirectPath);
     }
     return (
         <div>
