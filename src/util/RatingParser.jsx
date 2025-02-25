@@ -9,7 +9,6 @@ const RatingParser = ({ rating }) => {
     const [zeroRating, setZeroRating] = useState(false)
     const calculateRating = () => {
         if (rating === 0 || !rating) {
-            console.log(rating)
             setZeroRating(true)
             return;
         }

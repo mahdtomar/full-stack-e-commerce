@@ -34,11 +34,10 @@ const SuggestedProducts = ({ category }) => {
     ]
     const getSuggestedProducts = async (category) => {
         const products = await Request("/suggestions", "GET", false, { targetCategory: category })
-        console.log(products)
+        log('suggested products', products)
     }
     useEffect(() => {
         getSuggestedProducts(category);
-        console.log("render")
     }, [])
     return (
         <div className='product-suggested-products flexv'>

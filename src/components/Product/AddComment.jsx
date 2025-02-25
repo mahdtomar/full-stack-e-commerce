@@ -1,21 +1,30 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import RatingInput from './RatingInput'
 import './scss/AddComment.css'
 import userImage from './../../assets/icons/User.svg'
 import log from '../../util/Log'
 import { useNotification } from '../../hooks/useNotification'
 import Request from '../../Api/Axios'
+import { useLogin } from '../../context/LoginStatus'
+import CommentCard from './CommentCard'
 const AddComment = ({ productId }) => {
     const [commentBody, setCommentBody] = useState('')
     const [rating, setRating] = useState(null)
-    // const [error, setError] = useState('')
-    const user = JSON.parse(localStorage.getItem("user-info"));
+    const { isLogged, setShowLoginPopup, user } = useLogin()
+    const { showNotification } = useNotification()
+    const [currentComment, setCurrentComment] = useState(null)
     const userInfoRef = useRef(null)
     const commentBodyRef = useRef(null)
-    const { showNotification } = useNotification()
-    log("user info :", user)
+    const verifyLogin = () => {
+        if(!isLogged){
+            setShowLoginPopup(true)
+            showNotification("error", "You need to login to post a comment")
+            setRating(null)
+            setCurrentComment("")
+        }
+    }
     const validateComment = () => {
-        console.log("clicked")
+        verifyLogin()
         if (!rating && !commentBody) {
             showNotification("error", "Please provide a rating and a comment");
             return false
@@ -30,34 +39,50 @@ const AddComment = ({ productId }) => {
         }
         return true
     }
-
     const addComment = async () => {
         if (!validateComment()) return
         const payload = JSON.stringify({
             product_id: productId,
             rating: rating,
-            comment: commentBody,
+            body: commentBody,
             user_id: user?.id
         })
         const res = await Request("/add-comment", "POST", false, undefined, undefined, payload)
-        console.log(res)
+        log('comment response', res)
+        if (res.data) {
+            showNotification("success", "Comment posted successfully")
+            setRating(null)
+            setCommentBody('')
+        }
     }
-
+    const checkComment = async () => {
+        const res = await Request("/check-user-comment", "POST", false, undefined, undefined, JSON.stringify({ product_id: productId, }))
+        setCurrentComment(res.data)
+        log('check comment', res)
+    }
+    useEffect(() => {
+        verifyLogin()
+    }, [rating])
+    useEffect(() => {
+        isLogged && checkComment()
+    }, [isLogged])
     return (
         <div className='product-page-add-comment'>
-            <div className="flexv comment-card">
-                <div className="flex2">
-                    <div className="user-info flex2 ">
-                        <img className='user-avatar' src={user?.avatar || userImage} alt="user" />
-                        <h3>{user?.name || "Guest"}</h3>
-                        <div ref={userInfoRef} className="rating-container">
-                            <RatingInput setRating={setRating} rating={rating} />
+            {currentComment ? <CommentCard {...currentComment} customerName={user?.name} date={currentComment.reviewed_at} /> :
+                <div className="flexv comment-card">
+                    <div className="flex2">
+                        <div className="user-info flex2 ">
+                            <img className='user-avatar' src={user?.avatar || userImage} alt="user" />
+                            <h3>{user?.name || "Guest"}</h3>
+                            <div ref={userInfoRef} className="rating-container">
+                                <RatingInput setRating={setRating} rating={rating} />
+                            </div>
                         </div>
+                        <button className="primary" onClick={addComment}>Post</button>
                     </div>
-                    <button className="primary" onClick={addComment}>Post</button>
+                    <textarea ref={commentBodyRef} onFocus={()=>{verifyLogin()}} type="text" value={commentBody}  onChange={e => setCommentBody(e.target.value)} name="comment-body" id="comment-body" placeholder="Comment Your Thoughts..." />
                 </div>
-                <textarea ref={commentBodyRef} type="text" value={commentBody} onChange={e => setCommentBody(e.target.value)} name="comment-body" id="comment-body" placeholder="Comment Your Thoughts..." />
-            </div>
+            }
         </div>
     )
 }

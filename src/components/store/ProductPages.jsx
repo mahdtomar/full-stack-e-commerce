@@ -98,7 +98,7 @@ const ProductPages = () => {
     }
 
     useEffect(() => { getProducts(); getProductsCount(); }, [])
-    useEffect(() => { getProducts(currentPage, sort); console.log(sort) }, [sort])
+    useEffect(() => { getProducts(currentPage, sort); }, [sort])
 
     return (
         <div className="productPages-root">

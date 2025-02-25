@@ -44,7 +44,6 @@ const ProductForm = () => {
         if (file) {
             const reader = new FileReader()
             reader.onload = (e) => {
-                console.log(e.target)
                 imageRef.current.setAttribute("src", e.target.result)
                 imageRef.current.classList.add("visible")
                 imageInputRef.current.classList.add("hidden")

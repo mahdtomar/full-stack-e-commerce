@@ -44,7 +44,7 @@ const Comments = ({ productId }) => {
                         img={img}
                         customerName={customerName}
                         rating={rating}
-                        comment={comment}
+                        body={comment}
                         date={date} />)
                 }
                 < div className="cta flex2">

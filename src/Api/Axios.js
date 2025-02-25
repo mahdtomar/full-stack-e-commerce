@@ -3,8 +3,7 @@ import log from "../util/Log";
 
 // Utility functions to handle token storage in localStorage
 export const getAccessToken = () => localStorage.getItem("access_token") || "";
-export const setAccessToken = (token) =>
-    localStorage.setItem("access_token", token);
+export const setAccessToken = (token) => localStorage.setItem("access_token", token);
 
 // Create axios instance
 const axiosInstance = axios.create({
@@ -18,9 +17,9 @@ const refreshErrors = [
     "refresh token expired",
     "login required",
     "refresh token not found",
+    "token expired"
 ];
 
-// API Request Function
 const Request = async (
     endpoint,
     method,
@@ -61,7 +60,6 @@ const Request = async (
     }
 };
 
-// Request Interceptor - Attach Token
 axiosInstance.interceptors.request.use(
     (config) => {
         config.headers.Authorization = `Bearer ${getAccessToken()}`;

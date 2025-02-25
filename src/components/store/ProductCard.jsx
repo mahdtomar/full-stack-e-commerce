@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom'
 import './scss/ProductCard.css'
-import { useState } from 'react';
-import { use } from 'react';
+import { useEffect, useRef, useState } from 'react';
 const ProductCard = ({ title, img, price, discount, id }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setIsImageLoading(false)
-    //     }, 3000);
-    // }, [img])
+    const imagePlaceHolderRef = useRef(null)
+    useEffect(() => {
+        if (isImageLoading && img) {
+            let imageTimeout = setTimeout(() => {
+                if (imagePlaceHolderRef.current) {
+                    imagePlaceHolderRef.current.innerHTML = "Image Not Found";
+                }
+            }, 3000);
+            return () => clearTimeout(imageTimeout); // ✅ Cleanup
+        }
+    }, [isImageLoading, img]);
+
     return (
         <Link to={`/store/${title}`} state={{ productId: id }}>
             <div className="product-card flexv">
@@ -17,6 +23,7 @@ const ProductCard = ({ title, img, price, discount, id }) => {
                         {/* Placeholder or Spinner */}
                         {isImageLoading && img && (
                             <div
+                                ref={imagePlaceHolderRef}
                                 className="placeholder"
                                 style={{
                                     position: "absolute",
@@ -28,8 +35,7 @@ const ProductCard = ({ title, img, price, discount, id }) => {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     background: "#f0f0f0",
-                                }}
-                            >
+                                }}>
                                 Loading...
                             </div>
                         )}

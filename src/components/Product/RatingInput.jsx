@@ -14,7 +14,6 @@ const RatingInput = ({ rating, setRating }) => {
             SVG = ele.parentElement;
         }
         const RatingValue = SVG ? starList.indexOf(SVG) : starList.indexOf(ele)
-        console.log(RatingValue + 1)
         setRating(RatingValue + 1)
     }
     function resetRating() {
@@ -26,9 +25,7 @@ const RatingInput = ({ rating, setRating }) => {
         starList.slice(rating - 1, starList.length).map(star => star.style.fill = "none")
         setSelectedStars(starList.slice(0, rating))
     }
-
     useEffect(() => {
-        console.log(resetRating)
         resetRating()
     }, [])
     useEffect(() => {
