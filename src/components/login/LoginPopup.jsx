@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useLogin } from '../../context/LoginStatus'
 import xCricle from './../../assets/icons/XCircle-black.svg'
 import './scss/LoginPopup.css'
-import Request from '../../Api/Axios'
+import Request, { setAccessToken } from '../../Api/Axios'
 import { useNotification } from '../../hooks/useNotification'
 const LoginPopup = ({ setShowLoginPopup }) => {
     const { setLoggedUser } = useLogin()
@@ -21,6 +21,7 @@ const LoginPopup = ({ setShowLoginPopup }) => {
         showNotification("success", "Login successful")
         setShowLoginPopup(false)
         setLoggedUser(res.data);
+        setAccessToken(res.data.accessToken)
     }
     const moveToRegisterPage = () => {
         localStorage.setItem(
@@ -44,7 +45,7 @@ const LoginPopup = ({ setShowLoginPopup }) => {
                         <p>New User?<span onClick={moveToRegisterPage}> Register an Account </span></p>
                     </form>
                 </div>
-                <div className="drop-shadow"  onClick={() => setShowLoginPopup(false)} ></div>
+                <div className="drop-shadow" onClick={() => setShowLoginPopup(false)} ></div>
             </div>
         </>
     )

@@ -3,31 +3,32 @@ import log from "../util/Log";
 
 // Utility functions to handle token storage in localStorage
 export const getAccessToken = () => localStorage.getItem("access_token") || "";
-export const setAccessToken = (token) => localStorage.setItem("access_token", token);
-
-// Create axios instance
-const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
-    headers: {
-        "Content-Type": "application/json",
-    },
-});
+export const setAccessToken = (token) =>
+    localStorage.setItem("access_token", token);
 
 const refreshErrors = [
     "refresh token expired",
     "login required",
     "refresh token not found",
-    "token expired"
+    "token expired",
 ];
 
+// Create axios instance
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_BACKEND_URL,
+});
 const Request = async (
     endpoint,
     method,
     credentials,
     params = {},
-    headers = {},
+    headers = { "Content-Type": "application/json" },
     body
 ) => {
+    // Check if body is FormData
+    if (body instanceof FormData) {
+        delete headers["Content-Type"]; 
+    }
     const config = {
         method,
         url: endpoint,

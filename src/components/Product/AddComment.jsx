@@ -16,7 +16,7 @@ const AddComment = ({ productId }) => {
     const userInfoRef = useRef(null)
     const commentBodyRef = useRef(null)
     const verifyLogin = () => {
-        if(!isLogged){
+        if (!isLogged) {
             setShowLoginPopup(true)
             showNotification("error", "You need to login to post a comment")
             setRating(null)
@@ -45,7 +45,8 @@ const AddComment = ({ productId }) => {
             product_id: productId,
             rating: rating,
             body: commentBody,
-            user_id: user?.id
+            user_id: user?.id,
+            userName: user?.name
         })
         const res = await Request("/add-comment", "POST", false, undefined, undefined, payload)
         log('comment response', res)
@@ -53,6 +54,7 @@ const AddComment = ({ productId }) => {
             showNotification("success", "Comment posted successfully")
             setRating(null)
             setCommentBody('')
+            checkComment()
         }
     }
     const checkComment = async () => {
@@ -61,7 +63,9 @@ const AddComment = ({ productId }) => {
         log('check comment', res)
     }
     useEffect(() => {
-        verifyLogin()
+        if (rating) {
+            verifyLogin()
+        }
     }, [rating])
     useEffect(() => {
         isLogged && checkComment()
@@ -80,7 +84,7 @@ const AddComment = ({ productId }) => {
                         </div>
                         <button className="primary" onClick={addComment}>Post</button>
                     </div>
-                    <textarea ref={commentBodyRef} onFocus={()=>{verifyLogin()}} type="text" value={commentBody}  onChange={e => setCommentBody(e.target.value)} name="comment-body" id="comment-body" placeholder="Comment Your Thoughts..." />
+                    <textarea ref={commentBodyRef} type="text" onFocus={() => { verifyLogin() }} value={commentBody} onChange={e => setCommentBody(e.target.value)} name="comment-body" id="comment-body" placeholder="Comment Your Thoughts..." />
                 </div>
             }
         </div>
