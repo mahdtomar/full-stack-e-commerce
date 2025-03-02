@@ -27,7 +27,7 @@ const Request = async (
 ) => {
     // Check if body is FormData
     if (body instanceof FormData) {
-        delete headers["Content-Type"]; 
+        delete headers["Content-Type"];
     }
     const config = {
         method,
@@ -64,7 +64,7 @@ const Request = async (
 axiosInstance.interceptors.request.use(
     (config) => {
         config.headers.Authorization = `Bearer ${getAccessToken()}`;
-        log("Request Headers:", config.headers);
+        // log("Request Headers:", config.headers);
         return config;
     },
     (error) => Promise.reject(error)

@@ -1,15 +1,22 @@
+.add-product-form {
+  margin-top: 70px;
+}
+.add-product-form .container {
+  padding: 12px 12px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.3);
+}
 .add-product-form input,
 .add-product-form textarea {
   padding: 4px;
   direction: rtl;
   font-size: 1.1rem;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 .add-product-form input:focus,
 .add-product-form textarea:focus {
   outline: none;
-}
-.add-product-form .header {
-  margin-top: 70px;
 }
 .add-product-form .header .image-input {
   width: 300px;
@@ -19,6 +26,7 @@
   border-radius: 8px;
   display: grid;
   place-items: center;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1);
 }
 .add-product-form .header .image-input p.hidden {
   display: none;
@@ -36,6 +44,7 @@
   left: 0px;
   z-index: 2;
   opacity: 0;
+  cursor: pointer;
 }
 .add-product-form .header .image-input img {
   display: block;
@@ -53,11 +62,16 @@
 .add-product-form .header .info {
   width: calc(100% - 400px);
 }
+.add-product-form .header .info h1 {
+  text-align: center;
+  margin-bottom: 0px;
+}
 .add-product-form .header .info > label {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-end;
+  font-weight: bold;
 }
 .add-product-form .header .info > label .full {
   width: 100%;
@@ -70,6 +84,7 @@
 }
 .add-product-form .header .info > label textarea {
   height: 100px;
+  font-family: inherit;
 }
 .add-product-form .header .info > label input,
 .add-product-form .header .info > label textarea {
@@ -80,10 +95,12 @@
 }
 .add-product-form .header .info .cost-category {
   margin-top: 25px;
+  flex-direction: row-reverse;
 }
 .add-product-form .header .info .cost-category label {
   display: flex;
   flex-direction: row-reverse;
+  font-weight: bold;
   gap: 5px;
 }
 .add-product-form .header .info .cost-category label span {
@@ -92,27 +109,50 @@
 }
 .add-product-form .header .info .cost-category label input {
   display: inline;
-  border: none;
   width: 100px;
-  border-bottom: 2px solid black;
 }
 .add-product-form .header .info .cost-category .category {
   flex-direction: row-reverse;
   gap: 5px;
+  position: relative;
+  font-weight: bold;
 }
-.add-product-form .header .info .cost-category .category span {
-  text-transform: capitalize;
+.add-product-form .header .info .cost-category .category input {
+  display: inline;
 }
-.add-product-form .header .info .cost-category .category p {
-  width: 100px;
+.add-product-form .header .info .cost-category .category ul {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+}
+.add-product-form .header .info .cost-category .category ul li {
+  width: 100%;
+  padding: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   border-bottom: 2px solid black;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.add-product-form .header .info .cost-category .category ul li:last-child {
+  border: none;
+}
+.add-product-form .header .info .cost-category .category ul li:hover {
+  background-color: #f3f3f3;
+}
+.add-product-form .header .info .cost-category .category ul p {
+  padding: 4px;
 }
 .add-product-form .description > span {
   text-align: center;
   display: block;
   margin: 25px auto;
+  font-weight: bold;
 }
 .add-product-form .save {
   justify-content: flex-end;
