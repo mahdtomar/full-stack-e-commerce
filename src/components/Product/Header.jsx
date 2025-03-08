@@ -1,7 +1,18 @@
 import HeartIcon from './HeartIcon'
 import './scss/header.css'
 import RatingParser from '../../util/RatingParser'
-const Header = ({ title, image, briefDescription, price, discount, rating }) => {
+import Request from '../../Api/Axios'
+const Header = ({ title, image, briefDescription, price, discount, rating, id }) => {
+    const addToCart = async () => {
+        const payload = {
+            id: id,
+            count: 1,
+            price: discount ? discount : price
+        }
+        console.log(payload)
+        const res = await Request("/add-to-cart", "POST", true, undefined, undefined, JSON.stringify(payload))
+        console.log(res)
+    }
     return (
         <div className="product-header-root">
             <div className="container flex2">
@@ -19,7 +30,7 @@ const Header = ({ title, image, briefDescription, price, discount, rating }) => 
                         <RatingParser rating={rating} />
                     </div>
                     <div className="cta flex2">
-                        <button className="primary">add to cart</button>
+                        <button className="primary" onClick={addToCart}>add to cart</button>
                         <button className="favorit"><HeartIcon /></button>
                     </div>
                 </div>

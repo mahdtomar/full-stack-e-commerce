@@ -16,7 +16,6 @@ const SingleProduct = () => {
     const [showDescription, setShowDescription] = useState(false)
     const [error, setError] = useState(null)
     const getProductInfo = async () => {
-
         const productDetails = await Request(`/product/${location.state?.productId}`, "GET", false)
         if (!productDetails.data) {
             setError(true)
@@ -25,6 +24,7 @@ const SingleProduct = () => {
         setProduct(productDetails.data)
         console.log(productDetails)
     }
+
     useEffect(() => {
         getProductInfo();
     }, [])
@@ -40,7 +40,7 @@ const SingleProduct = () => {
                     <h1>Product not found</h1>
                 </div>
             </> : <>
-                <Header title={product.title} briefDescription={product.briefDescription} price={product.salePrice} image={product.image} rating={product?.rating} discount={35} />
+                <Header id={product._id} title={product.title} briefDescription={product.briefDescription} price={product.salePrice} image={product.image} rating={product?.rating} discount={35} />
                 <div className={`single-product-page-description-container container ${showDescription === true && "show"}`}>
                     <p className="description" ref={descriptionRef}></p>
                     <button onClick={() => setShowDescription(curr => !curr)} className={'primary'}>Show More</button>

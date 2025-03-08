@@ -106,7 +106,7 @@ const ProductPages = () => {
                 <h1 ref={headerRef}>Shop All Products</h1>
                 <div className="products-container flex2">
                     {products?.map((product, i) => {
-                        return <ProductCard key={i} title={product.title} img={product.image} price={product.salePrice} discount={product.discount} id={product._id} />
+                        return <ProductCard key={i} title={product.title} img={product.image} price={product.salePrice} discount={product.discount} id={product._id} rating={product.rating} />
                     })}
                     {/* {test_products.map(({ title, img, price, discount, }, i) => {
                         return <ProductCard key={i} title={title} img={img} price={price} discount={discount} />

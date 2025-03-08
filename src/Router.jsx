@@ -6,6 +6,7 @@ import Login from "./pages/Login"
 import RegistrationForm from "./components/login/RegistrationForm"
 import LoginForm from "./components/login/LoginForm"
 import AddProduct from "./pages/AddProduct"
+import Cart from "./pages/Cart"
 
 const Router = () => {
     return (
@@ -15,6 +16,7 @@ const Router = () => {
             <Route path="/" element={<Home />} />
             <Route path="/store" element={<Store />} />
             <Route path="/store/:id" element={<SingleProduct />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/add-product" element={<AddProduct />} />
         </Routes>
     )

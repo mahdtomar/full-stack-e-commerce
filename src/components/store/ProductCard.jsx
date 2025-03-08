@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import './scss/ProductCard.css'
+import star from './../../assets/icons/Star-thin.svg'
 import { useEffect, useRef, useState } from 'react';
-const ProductCard = ({ title, img, price, discount, id }) => {
+const ProductCard = ({ title, img, price, discount, id, rating }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
     const imagePlaceHolderRef = useRef(null)
     useEffect(() => {
@@ -11,13 +12,15 @@ const ProductCard = ({ title, img, price, discount, id }) => {
                     imagePlaceHolderRef.current.innerHTML = "Image Not Found";
                 }
             }, 3000);
-            return () => clearTimeout(imageTimeout); // ✅ Cleanup
+            return () => clearTimeout(imageTimeout); 
         }
     }, [isImageLoading, img]);
-
     return (
         <Link to={`/store/${title}`} state={{ productId: id }}>
             <div className="product-card flexv">
+                <div className="rating flex2">
+                    <span>{rating > 0 ? rating.toFixed(2) : rating}</span><img src={star} alt="star icon" />
+                </div>
                 <div>
                     <div className='image-container'>
                         {/* Placeholder or Spinner */}

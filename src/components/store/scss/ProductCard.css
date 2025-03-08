@@ -1,14 +1,15 @@
 .product-card {
-  width: 218px;
-  height: 420px;
+  width: 238px;
+  height: 400px;
   border: 1px solid black;
   border-radius: 8px;
-  padding: 20px 10px;
+  padding: 10px 10px;
   justify-content: space-between;
   align-items: stretch;
   font-family: inherit;
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.3s ease-in-out;
+  position: relative;
 }
 .product-card:hover {
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.15);
@@ -22,14 +23,30 @@
   text-overflow: ellipsis;
   font-family: inherit;
 }
+.product-card .rating {
+  position: absolute;
+  border-radius: 4px;
+  top: 14px;
+  left: 14px;
+  background-color: white;
+  gap: 5px;
+  font-weight: bold;
+  z-index: 2;
+  padding: 0px 4px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
+}
+.product-card .rating img {
+  width: 20px;
+  height: 20px;
+}
 .product-card .image-container {
-  width: 198px;
+  width: 218px;
   position: relative;
 }
 .product-card .image-container img {
   display: block;
   width: 100%;
-  height: 223px;
+  height: 233px;
   border-radius: 8px;
   -o-object-fit: cover;
      object-fit: cover;
