@@ -10,7 +10,7 @@ const ProductForm = () => {
     const [productName, setProductName] = useState("")
     const [briefDescription, setBriefDescription] = useState("")
     const [cost, setCost] = useState("")
-    const [price, setPrice] = useState("")
+    const [basePrice, setBasePrice] = useState("")
     const [description, setDescription] = useState("")
     const [categories, setCategories] = useState([])
     const [categoryInput, setCategoryInput] = useState("")
@@ -31,7 +31,6 @@ const ProductForm = () => {
             showNotification("error", `Product name too long (${productName.length}/80 characters)`);
             return false;
         }
-
         // Validate Brief Description
         if (!briefDescription) {
             showNotification("error", "Please enter a brief description");
@@ -81,7 +80,7 @@ const ProductForm = () => {
             briefDescription: briefDescription.toString(),
             description: description,
             cost: cost,
-            salePrice: price,
+            basePrice: basePrice,
             image: productImageRef.current.files[0]
         }
         log("product info", data)
@@ -130,7 +129,7 @@ const ProductForm = () => {
         setProductName("");
         setBriefDescription("");
         setCost("");
-        setPrice("");
+        setBasePrice("");
         setDescription("");
         setCategoryInput("");
         setFilteredCategory([]);
@@ -172,8 +171,8 @@ const ProductForm = () => {
                                 <input type="text" name="cost" value={cost} onChange={e => { setCost(e.target.value) }} />
                             </label>
                             <label htmlFor="sale-price">
-                                <span className="title">sale price</span>
-                                <input type="text" name="sale-price" value={price} onChange={e => { setPrice(e.target.value) }} />
+                                <span className="title">base price</span>
+                                <input type="text" name="sale-price" value={basePrice} onChange={e => { setBasePrice(e.target.value) }} />
                             </label>
                             <div className="category flex2">
                                 <span className="title">category</span>
@@ -183,6 +182,9 @@ const ProductForm = () => {
                                     {filteredCategory.length === 0 && <p>No Matching Categories</p>}
                                 </ul>}
                             </div>
+                        </div>
+                        <div className="flex2">
+                            
                         </div>
                     </div>
                 </div>

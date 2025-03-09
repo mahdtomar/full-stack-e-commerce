@@ -5,7 +5,7 @@ import Request from '../../Api/Axios'
 const Header = ({ title, image, briefDescription, price, discount, rating, id }) => {
     const addToCart = async () => {
         const payload = {
-            id: id,
+            productId: id,
             count: 1,
             price: discount ? discount : price
         }

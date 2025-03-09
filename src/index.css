@@ -6,6 +6,7 @@
   padding: 0px;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  cursor: url("./assets/images/cursor-white.svg"), auto;
 }
 
 :root {
@@ -13,7 +14,6 @@
   --cream-hover: #f0e1d0;
   --light-orange: #fedebe;
   --green: #16bf00;
-  --gold:"";
 }
 
 h1,
@@ -63,6 +63,15 @@ body {
   min-height: calc(100vh - 30px);
   font-family: "Poppins", sans-serif;
   font-size: 18px;
+  cursor: url("./assets/images/cursor.png"), auto;
+}
+
+input, textarea {
+  cursor: url("./assets/images/cursor-text.png"), text;
+}
+
+input[type=file]:hover {
+  cursor: url("./assets/images/cursor-pointer-white.svg"), pointer;
 }
 
 .flex2 {
@@ -90,7 +99,7 @@ button {
   border: none;
   text-transform: capitalize;
   font-size: 18px;
-  cursor: pointer;
+  cursor: url("./assets/images/cursor-pointer-white.svg"), pointer;
 }
 button.primary {
   padding: 7px 10px;
