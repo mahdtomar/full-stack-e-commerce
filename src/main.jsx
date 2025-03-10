@@ -8,7 +8,7 @@ import Login from './pages/Login.jsx'
 import LoginStatus from './context/LoginStatus.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/" future={{
+  <BrowserRouter basename="/full-stack-e-commerce" future={{
     v7_startTransition: true,
   }}>
     <JWT>

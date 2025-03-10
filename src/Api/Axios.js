@@ -105,7 +105,7 @@ axiosInstance.interceptors.response.use(
                         "redirectAfterLogin",
                         window.location.pathname + window.location.search
                     );
-                    location.href = "/login";
+                    location.href = " /full-stack-e-commerce/login";
                 }
                 log("Refresh token request failed:", refreshError);
             }

@@ -48,11 +48,11 @@ const ProductForm = () => {
         }
 
         // Validate Sale Price
-        if (!price || isNaN(price) || Number(price) < 0) {
+        if (!basePrice || isNaN(basePrice) || Number(basePrice) < 0) {
             showNotification("error", "Sale price must be a valid positive number");
             return false;
         }
-        if (Number(price) < Number(cost)) {
+        if (Number(basePrice) < Number(cost)) {
             showNotification("error", "Sale price cannot be lower than cost");
             return false;
         }
@@ -184,7 +184,7 @@ const ProductForm = () => {
                             </div>
                         </div>
                         <div className="flex2">
-                            
+
                         </div>
                     </div>
                 </div>

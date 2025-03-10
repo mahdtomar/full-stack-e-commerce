@@ -11,13 +11,13 @@ import Cart from "./pages/Cart"
 const Router = () => {
     return (
         <Routes>
-            <Route path="/register" element={<Login content={<RegistrationForm />} />} />
-            <Route path="/login" element={<Login content={<LoginForm />} />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/store/:id" element={<SingleProduct />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/add-product" element={<AddProduct />} />
+            <Route index element={<Home />} />
+            <Route path="register" element={<Login content={<RegistrationForm />} />} />
+            <Route path="login" element={<Login content={<LoginForm />} />} />
+            <Route path="store" element={<Store />} />
+            <Route path="store/:id" element={<SingleProduct />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="add-product" element={<AddProduct />} />
         </Routes>
     )
 }
