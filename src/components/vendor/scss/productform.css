@@ -149,6 +149,24 @@
 .add-product-form .header .info .cost-category .category ul p {
   padding: 4px;
 }
+.add-product-form .header .info .discount-container {
+  margin-top: 25px;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.add-product-form .header .info .discount-container label {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 30%;
+  gap: 5px;
+}
+.add-product-form .header .info .discount-container label span {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.add-product-form .header .info .discount-container label input {
+  width: 100%;
+}
 .add-product-form .description > span {
   text-align: center;
   display: block;

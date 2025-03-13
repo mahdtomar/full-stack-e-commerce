@@ -151,6 +151,24 @@
                     }
                 }
             }
+            .discount-container {
+                margin-top: 25px;
+                justify-content: flex-end;
+                gap: 20px;
+                label {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    width: 30%;
+                    gap: 5px;
+                    span {
+                        font-weight: bold;
+                        white-space: nowrap;
+                    }
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
     .description {

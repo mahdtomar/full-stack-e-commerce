@@ -123,6 +123,10 @@ button.secondary:hover {
   gap: 12px;
 }
 
+.cursor-pointer {
+  cursor: url("./assets/images/cursor-pointer-white.svg"), pointer;
+}
+
 a {
   text-decoration: none;
   color: inherit;

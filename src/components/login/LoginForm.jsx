@@ -19,7 +19,7 @@ const LoginForm = () => {
         localStorage.setItem("user-info", JSON.stringify(res.data))
         const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
         log('user data', res.data)
-        navigate(!redirectPath || redirectPath === "/login" ? "/" : redirectPath);
+        navigate(!redirectPath || redirectPath === "/full-stack-e-commerce/login" ? "/" : redirectPath);
     }
     return (
         <div>

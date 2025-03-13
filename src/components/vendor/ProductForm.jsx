@@ -11,6 +11,8 @@ const ProductForm = () => {
     const [briefDescription, setBriefDescription] = useState("")
     const [cost, setCost] = useState("")
     const [basePrice, setBasePrice] = useState("")
+    const [discount, setDiscount] = useState('')
+    const [finalPrice, setFinalPrice] = useState('')
     const [description, setDescription] = useState("")
     const [categories, setCategories] = useState([])
     const [categoryInput, setCategoryInput] = useState("")
@@ -76,12 +78,14 @@ const ProductForm = () => {
     const handleSubmit = async () => {
         if (!validateSubmit()) { console.log("validation Failed"); return }
         const data = {
-            title: productName,
-            briefDescription: briefDescription.toString(),
-            description: description,
+            title: productName.trim(),
+            briefDescription: briefDescription.toString().trim(),
+            description: description.trim(),
             cost: cost,
             basePrice: basePrice,
-            image: productImageRef.current.files[0]
+            image: productImageRef.current.files[0],
+            finalPrice: finalPrice,
+            discountPercentage: discount
         }
         log("product info", data)
         const formData = new FormData()
@@ -144,6 +148,22 @@ const ProductForm = () => {
         imageRef.current.classList.remove("visible")
 
     };
+    const changeBasePrice = (value) => {
+        setBasePrice(value)
+        setFinalPrice(value - (value * ((discount / 100) || 0)))
+    }
+    const changeDiscount = (discountValue) => {
+        if (discountValue < 100) {
+            setDiscount(discountValue)
+            setFinalPrice(basePrice - (basePrice * ((discountValue / 100) || 0)))
+            return
+        }
+        setFinalPrice(0)
+        setDiscount(100)
+        if (discount >= 100) {
+            showNotification("info", "Discount Must Be Equal to or Less Than 100")
+        }
+    }
     useEffect(() => { filterCategory() }, [categoryInput])
     useEffect(() => { getCategories() }, [])
     return (
@@ -170,9 +190,9 @@ const ProductForm = () => {
                                 <span className="title">cost</span>
                                 <input type="text" name="cost" value={cost} onChange={e => { setCost(e.target.value) }} />
                             </label>
-                            <label htmlFor="sale-price">
+                            <label htmlFor="base-price">
                                 <span className="title">base price</span>
-                                <input type="text" name="sale-price" value={basePrice} onChange={e => { setBasePrice(e.target.value) }} />
+                                <input type="text" name="base-price" value={basePrice} onChange={e => { changeBasePrice(e.target.value) }} />
                             </label>
                             <div className="category flex2">
                                 <span className="title">category</span>
@@ -183,8 +203,15 @@ const ProductForm = () => {
                                 </ul>}
                             </div>
                         </div>
-                        <div className="flex2">
-
+                        <div className="flex2 discount-container">
+                            <label htmlFor="final-price">
+                                <span className="title">final price</span>
+                                <input type="text" name="final-price" value={finalPrice} onChange={e => { setFinalPrice(e.target.value) }} />
+                            </label>
+                            <label htmlFor="discount">
+                                <span className="title">discount (%)</span>
+                                <input type="text" name="discount" value={discount} onChange={e => { changeDiscount(e.target.value) }} />
+                            </label>
                         </div>
                     </div>
                 </div>

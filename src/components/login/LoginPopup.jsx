@@ -35,12 +35,12 @@ const LoginPopup = ({ setShowLoginPopup }) => {
         <>
             <div className="login-popup">
                 <div className="login-popup-container">
-                    <img src={xCricle} alt="close-icon" className="close-icon" onClick={() => setShowLoginPopup(false)} />
+                    <img src={xCricle} alt="close-icon" className="close-icon cursor-pointer" onClick={() => setShowLoginPopup(false)} />
                     <form className='flexv'>
                         <div className="logo">Cartique</div>
                         <p>Login</p>
                         <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                        <input type="password" name="password" id="password" value={userpassword} onChange={e => setUserPassword(e.target.value)} />
+                        <input type="password" name="password" id="password" value={userpassword} onChange={e => setUserPassword(e.target.value)} placeholder='password' />
                         <button type="submit" className='primary' onClick={e => handleSubmit(e)}>Login</button>
                         <p>New User?<span onClick={moveToRegisterPage}> Register an Account </span></p>
                     </form>
