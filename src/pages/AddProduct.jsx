@@ -3,10 +3,9 @@ import ProductForm from "../components/vendor/ProductForm"
 
 const AddProduct = () => {
     return (
-        <div>
-            <Navbar />
+        <>
             <ProductForm />
-        </div>
+        </>
     )
 }
 

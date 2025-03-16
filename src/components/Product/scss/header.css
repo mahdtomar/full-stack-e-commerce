@@ -64,6 +64,9 @@
   width: 350px;
   height: 75px;
 }
+.product-header-root .container .info .cta .counter span {
+  padding: 10px;
+}
 .product-header-root .container .info .cta .favorit {
   background-color: white;
   width: 75px;

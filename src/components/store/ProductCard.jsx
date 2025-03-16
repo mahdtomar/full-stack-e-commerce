@@ -16,7 +16,7 @@ const ProductCard = ({ title, img, price, discount, id, rating }) => {
         }
     }, [isImageLoading, img]);
     return (
-        <Link to={`/store/${title}`} state={{ productId: id }}>
+        <Link to={`/user/store/${title}`} state={{ productId: id }}>
             <div className="product-card flexv">
                 <div className="rating flex2">
                     <span>{rating > 0 ? rating.toFixed(2) : rating}</span><img src={star} alt="star icon" />

@@ -1,0 +1,14 @@
+.customer-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.customer-layout .navbar-root {
+  flex-shrink: 0;
+}
+.customer-layout .outlet-container {
+  flex: 1;
+}
+.customer-layout .footer-root {
+  flex-shrink: 0;
+}/*# sourceMappingURL=customerlayout.css.map */

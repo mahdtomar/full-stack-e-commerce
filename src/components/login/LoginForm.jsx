@@ -4,6 +4,8 @@ import Request from "../../Api/Axios"
 import log from "../../util/Log"
 import { useNavigate } from "react-router-dom"
 import { useNotification } from "../../hooks/useNotification"
+import logo from './../../assets/images/logo.png'
+import './scss/LoginForm.css'
 const LoginForm = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState("")
@@ -18,17 +20,19 @@ const LoginForm = () => {
         }
         localStorage.setItem("user-info", JSON.stringify(res.data))
         const redirectPath = localStorage.getItem("redirectAfterLogin") || "/";
+        localStorage.removeItem("redirectAfterLogin")
         log('user data', res.data)
         navigate(!redirectPath || redirectPath === "/full-stack-e-commerce/login" ? "/" : redirectPath);
     }
     return (
-        <div>
+        <div className="login-form-root">
             <div className="logo">Cartique</div>
-            <p>Login</p>
-            <form>
+            <img src={logo} alt="logo" />
+            {/* <p>Login</p> */}
+            <form className="flexv">
                 <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-                <input type="password" name="password" id="password" value={userpassword} onChange={e => setUserPassword(e.target.value)} />
-                <button type="submit" onClick={e => handleSubmit(e)}>Login</button>
+                <input type="password" name="password" id="password" placeholder="Password" value={userpassword} onChange={e => setUserPassword(e.target.value)} />
+                <button className="primary" type="submit" onClick={e => handleSubmit(e)}>Login</button>
             </form>
         </div>
     )

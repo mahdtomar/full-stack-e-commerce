@@ -1,0 +1,44 @@
+.login-form-root {
+  display: grid;
+  place-items: center;
+  max-width: 300px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid black;
+  width: 100%;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.login-form-root p {
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+.login-form-root .logo {
+  font-size: 30px;
+}
+.login-form-root img {
+  display: block;
+  max-width: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 12px auto;
+}
+.login-form-root form {
+  width: 100%;
+  gap: 8px;
+}
+.login-form-root form input {
+  border: 1px solid black;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+  display: block;
+  width: 100%;
+  padding: 4px;
+  border-radius: 4px;
+}
+.login-form-root form input:focus {
+  outline: none;
+}
+.login-form-root form button {
+  width: 100%;
+  border-radius: 4px;
+}/*# sourceMappingURL=LoginForm.css.map */

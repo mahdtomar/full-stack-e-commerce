@@ -8,13 +8,11 @@ import Navbar from '../components/misc/navbar/Navbar'
 const Home = () => {
     return (
         <>
-            <Navbar />
             <Header />
             <Cetegories />
             <TopDeals />
             <WhyChooseUs />
             <Testmonials />
-            <Footer />
         </>
     )
 }

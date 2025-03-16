@@ -1,0 +1,16 @@
+.counter {
+  background-color: #eee;
+  border-radius: 8px;
+  height: 35px;
+}
+.counter span {
+  padding: 2px;
+  display: grid;
+  place-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+.counter span img {
+  width: 25px;
+  cursor: url("./../../../assets/images/cursor-pointer-white.svg"), pointer;
+}/*# sourceMappingURL=Counter.css.map */

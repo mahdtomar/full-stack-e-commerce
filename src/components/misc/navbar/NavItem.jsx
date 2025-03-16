@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 
-const NavItem = ({ name, path, state, className }) => {
+const NavItem = ({ name, path, className, }) => {
     return (
-        <li>
-            <Link className={`nav-item ${className}`} to={path} state={state}>
+        <li className={`nav-item ${className}`} >
+            <Link to={path}>
                 {name}
             </Link>
-        </li>
+        </li >
     )
 }
 

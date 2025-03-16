@@ -1,0 +1,17 @@
+.counter {
+    background-color: #eee;
+    border-radius: 8px;
+    height: 35px;
+    span {
+        padding: 2px;
+        display: grid;
+        place-items: center;
+        img {
+            width: 25px;
+            cursor: url("./../../../assets/images/cursor-pointer-white.svg"),
+                pointer;
+        }
+        font-size: large;
+        font-weight: bold;
+    }
+}

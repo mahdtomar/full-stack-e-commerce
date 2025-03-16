@@ -4,8 +4,13 @@
     max-width: 854px;
     justify-content: flex-start;
     gap: 15px;
+    border-radius: 16px;
+    align-items: stretch;
+    max-height: 260px;
+    height: fit-content;
     .image-container {
         img {
+            border-radius: 8px;
             width: 230px;
             height: 230px;
             object-fit: cover;
@@ -16,6 +21,9 @@
         justify-content: space-between;
         width: 100%;
         max-width: 580px;
+        .wrapper {
+            width: 100%;
+        }
         .title-container {
             width: 100%;
             justify-content: space-between;
@@ -35,6 +43,7 @@
             white-space: nowrap;
         }
         .description {
+            margin-top: 10px;
             line-clamp: 3;
             -webkit-line-clamp: 3;
             overflow: hidden;
@@ -51,6 +60,16 @@
         }
         button.primary {
             padding: 7px 10px;
+        }
+        .options {
+            margin-top: 5px;
+            width: 100%;
+            .delete {
+                background-color: unset;
+                &:hover {
+                    background-color: red;
+                }
+            }
         }
     }
 }
