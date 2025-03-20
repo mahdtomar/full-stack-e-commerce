@@ -9,9 +9,9 @@ const Navbar = () => {
     const location = useLocation();
 
     const navigationLinks = [
-        { name: "home", path: "/user/" },
-        { name: "store", path: "/user/store" },
-        { name: "Contact Us", path: "/user/contact-us" },
+        { name: "home", path: "/" },
+        { name: "store", path: "/store" },
+        { name: "Contact Us", path: "/contact-us" },
     ];
 
     return (
@@ -30,7 +30,7 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <div className="cart">
-                    <Link to={'/user/cart'}>
+                    <Link to={'/cart'}>
                         <img src={cart} alt="cart" />
                     </Link>
                 </div>

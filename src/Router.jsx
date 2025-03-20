@@ -14,7 +14,7 @@ import ContactUs from './pages/ContactUs'
 const Router = () => {
     return (
         <Routes>
-            <Route path="user" element={<CustomerLayout />}>
+            <Route path="/" element={<CustomerLayout />}>
                 <Route index element={<Home />} />
                 <Route path="register" element={<Login content={<RegistrationForm />} />} />
                 <Route path="login" element={<Login content={<LoginForm />} />} />

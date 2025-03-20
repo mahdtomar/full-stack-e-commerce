@@ -1,9 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Counter from '../Product/Counter'
 import './scss/cartProductCard.css'
-const CartProductCard = ({ img, title, price, quantity, briefDescription }) => {
-    const [count, setCount] = useState(quantity || 1)
+import { useCart } from '../../hooks/useCart'
+import Request from '../../Api/Axios'
+import { Link } from 'react-router-dom'
+const CartProductCard = ({ id, img, title, price, quantity, briefDescription }) => {
+    const [count, setCount] = useState(quantity)
     const descriptionRef = useRef(null)
+    const { deleteCartItem } = useCart()
+
+    // const [updateCount, setUpdateCount] = useState(null)
+    const updateCountRef = useRef(null)
+    const updateProductCount = async () => {
+        const updateItem = await Request(`/updateCartItem/${id}`,
+            "PUT",
+            true,
+            undefined,
+            undefined, JSON.stringify({ count: count }))
+        console.log("update request", updateItem.data)
+    }
+    useEffect(() => {
+        if (count !== quantity) {
+            if (updateCountRef.current) {
+                clearTimeout(updateCountRef.current)
+            }
+            updateCountRef.current = setTimeout(updateProductCount, 2000)
+        }
+        return () => {
+            if (updateCountRef.current) {
+                clearTimeout(updateCountRef.current)
+            }
+        }
+    }, [count])
     useEffect(() => {
         descriptionRef.current.innerHTML = briefDescription
     }, [])
@@ -25,9 +53,11 @@ const CartProductCard = ({ img, title, price, quantity, briefDescription }) => {
                     <div className="flex2 options">
                         <div className="counter-container flex2">
                             <Counter count={count} setCount={setCount} min={1} />
-                            <button className="delete primary">Delete</button>
+                            <button className="delete primary" onClick={() => deleteCartItem(id)}>Delete</button>
                         </div>
-                        <button className="primary">Product Details</button>
+                        <button className="primary">
+                            <Link to={`/store/${title}`} state={{ productId: id }}>Product Details</Link>
+                        </button>
                     </div>
                 </div>
             </div>

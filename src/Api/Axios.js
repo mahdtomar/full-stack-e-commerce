@@ -11,6 +11,7 @@ const refreshErrors = [
     "login required",
     "refresh token not found",
     "token expired",
+    "No token provided",
 ];
 
 // Create axios instance
