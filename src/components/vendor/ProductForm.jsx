@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import './scss/productform.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import log from '../../util/Log';
 import Request from '../../Api/Axios';
 import { useNotification } from '../../hooks/useNotification';
+import { loginContext } from '../../context/LoginStatus';
 
 const ProductForm = () => {
     const [productName, setProductName] = useState("")
@@ -23,6 +24,7 @@ const ProductForm = () => {
     // Check for exact match
     const exactMatch = categories.some(category => category.name === categoryInput);
     const { showNotification } = useNotification()
+    const { user } = useContext(loginContext)
     const validateSubmit = () => {
         // Validate Product Name
         if (!productName) {
@@ -81,10 +83,12 @@ const ProductForm = () => {
             title: productName.trim(),
             briefDescription: briefDescription.toString().trim(),
             description: description.trim(),
+            category: categoryInput,
             cost: cost,
             basePrice: basePrice,
             image: productImageRef.current.files[0],
             finalPrice: finalPrice,
+            vendor_id: user._id,
             discountPercentage: discount
         }
         log("product info", data)

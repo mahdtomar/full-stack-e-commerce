@@ -7,6 +7,7 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const { isLogged } = useContext(loginContext)
     const [cartTotals, setCartTotals] = useState({})
+
     const getUserCart = useCallback(async () => {
         if (!isLogged) {
             return
@@ -27,22 +28,30 @@ const CartProvider = ({ children }) => {
     }
 
     const calcTotals = () => {
-        let total = 0
-        let subtotal = 0
-        let productCount = 0
-        let discountAmount = 0
+        let total = 0;
+        let subtotal = 0;
+        let productCount = 0;
+        let discountAmount = 0;
+        let totalCost = 0;
         cart.forEach(element => {
             if (!element.product) {
-                return
+                return;
             }
-            productCount += element.count
-            discountAmount = (discountAmount + (element.product.basePrice * element.product.discountPercentage / 100)) * element.count
-            subtotal = (subtotal + element.product.basePrice) * element.count
-            total = (total + element.product.finalPrice) * element.count
+            // calculating total for the current product
+            const cost = element.product.cost
+            const basePrice = element.product.basePrice;
+            const discount = (basePrice * element.product.discountPercentage) / 100;
+            const finalPrice = element.product.finalPrice;
+            // accumulating totals for all products
+            productCount += element.count;
+            totalCost += cost * element.count;
+            discountAmount += discount * element.count;
+            subtotal += basePrice * element.count;
+            total += finalPrice * element.count;
         });
+        setCartTotals({ subtotal, productCount, discountAmount, total });
+    };
 
-        setCartTotals({ subtotal, productCount, discountAmount, total })
-    }
     useEffect(() => {
         calcTotals()
     }, [cart])
