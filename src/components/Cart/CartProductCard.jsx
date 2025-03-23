@@ -7,10 +7,9 @@ import { Link } from 'react-router-dom'
 const CartProductCard = ({ id, img, title, price, quantity, briefDescription }) => {
     const [count, setCount] = useState(quantity)
     const descriptionRef = useRef(null)
-    const { deleteCartItem } = useCart()
-
-    // const [updateCount, setUpdateCount] = useState(null)
+    const { deleteCartItem, getUserCart } = useCart()
     const updateCountRef = useRef(null)
+
     const updateProductCount = async () => {
         const updateItem = await Request(`/updateCartItem/${id}`,
             "PUT",
@@ -18,13 +17,14 @@ const CartProductCard = ({ id, img, title, price, quantity, briefDescription }) 
             undefined,
             undefined, JSON.stringify({ count: count }))
         console.log("update request", updateItem.data)
+        getUserCart()
     }
     useEffect(() => {
         if (count !== quantity) {
             if (updateCountRef.current) {
                 clearTimeout(updateCountRef.current)
             }
-            updateCountRef.current = setTimeout(updateProductCount, 2000)
+            updateCountRef.current = setTimeout(updateProductCount, 1000)
         }
         return () => {
             if (updateCountRef.current) {
