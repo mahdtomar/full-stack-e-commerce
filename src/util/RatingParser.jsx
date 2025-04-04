@@ -31,10 +31,10 @@ const RatingParser = ({ rating }) => {
 
     useEffect(() => {
         calculateRating();
-        console.log("rating", rating)
-        console.log("full star", starCount)
-        console.log("half star", isHalf)
-        console.log("remairing star", emptyStars)
+        // console.log("rating", rating)
+        // console.log("full star", starCount)
+        // console.log("half star", isHalf)
+        // console.log("remairing star", emptyStars)
     }, [rating]); // Include rating as a dependency
 
     return (

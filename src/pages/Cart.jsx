@@ -28,12 +28,12 @@ const Cart = () => {
         <>
             {/* { img, title, price, count, description } */}
             <div className="cart-page-root container flex2">
-                <div className="cart-items">
+                <div className="cart-items flexv">
                     {cart.map(({ count, product }) => {
                         if (!product) {
                             return "this item is not availabe"
                         }
-                        return <CartProductCard key={product._id} id={product._id} img={product.image} title={product.title} price={product.basePrice} quantity={count || 1} briefDescription={product.briefDescription} />
+                        return <CartProductCard key={product._id} id={product._id} img={product.image} title={product.title} price={product.basePrice} quantity={count || 1} briefDescription={product.briefDescription} cloudinary_url={product.cloudinary_url} />
                     })}
                     {cart.length === 0 && <div>Your cart is empty</div>}
                 </div>

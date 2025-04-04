@@ -34,12 +34,10 @@ const Comments = ({ productId }) => {
     //     },
     // ]
     const { user } = useLogin()
-    console.log(user)
     const [comments, setComments] = useState([])
     const getComments = async () => {
         try {
             const res = await Request(`/comments/${productId}`, "GET")
-            console.log(res.data)
             setComments(res.data)
         } catch (error) {
             console.log(error)
@@ -56,7 +54,6 @@ const Comments = ({ productId }) => {
                 {
                     comments.map(({ user_id, img, userName, rating, body, reviewed_at }, i) => {
                         if (user_id === user?._id) {
-                            console.log(user)
                             return
                         }
                         return <CommentCard

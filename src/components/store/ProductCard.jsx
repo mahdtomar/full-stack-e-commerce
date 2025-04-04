@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import './scss/ProductCard.css'
 import star from './../../assets/icons/Star-thin.svg'
 import { useEffect, useRef, useState } from 'react';
-const ProductCard = ({ title, img, price, discount, id, rating }) => {
+const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
     const imagePlaceHolderRef = useRef(null)
     useEffect(() => {
@@ -42,8 +42,8 @@ const ProductCard = ({ title, img, price, discount, id, rating }) => {
                                 Loading...
                             </div>
                         )}
-                        {!img && <div className="placeholder" style={{ background: "#f0f0f0" }}>No Image</div>}
-                        <img src={img} alt={title} onLoad={() => { setIsImageLoading(false) }} />
+                        {!img && !cloudinary_url && <div className="placeholder" style={{ background: "#f0f0f0" }}>No Image</div>}
+                        <img src={ cloudinary_url} alt={title} onLoad={() => { setIsImageLoading(false) }} />
                     </div>
                     <p className="title">{title}</p>
                 </div>

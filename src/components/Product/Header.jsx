@@ -5,7 +5,8 @@ import Request from '../../Api/Axios'
 import { useContext, useEffect, useState } from 'react'
 import { useNotification } from '../../hooks/useNotification'
 import Counter from './Counter'
-const Header = ({ title, image, briefDescription, price, discount, rating, id }) => {
+import log from '../../util/Log'
+const Header = ({ title, image, briefDescription, price, discount, rating, id, discountPercentage, basePrice }) => {
     const { showNotification } = useNotification()
     const [count, setCount] = useState(1)
     const addToCart = async () => {
@@ -14,12 +15,12 @@ const Header = ({ title, image, briefDescription, price, discount, rating, id })
             count: count,
             price: discount ? discount : price
         }
-        console.log(payload)
+        log("single product payload", payload)
         const res = await Request("/add-to-cart", "POST", true, undefined, undefined, JSON.stringify(payload))
         showNotification("success", "Added To Cart")
-        console.log(res)
+        log("single product response", res)
     }
-    useEffect(() => { console.log("header renders") }, [])
+    useEffect(() => { log("header renders") }, [])
     return (
         <div className="product-header-root">
             <div className="container flex2">
@@ -28,9 +29,9 @@ const Header = ({ title, image, briefDescription, price, discount, rating, id })
                     <p>{briefDescription}</p>
                     <div className="price-rating flex2">
                         <div className="price-container flex2">
-                            {discount && <div className='discount flex2'>
-                                <span className='old-price'>{price}</span>
-                                <span className='discount-percentage'>{100 - (discount / price * 100)}%</span>
+                            {discountPercentage > 0 && <div className='discount flex2'>
+                                <span className='old-price'>{basePrice}</span>
+                                <span className='discount-percentage'>{discountPercentage}%</span>
                             </div>}
                             <span className="price-tag">{discount ? discount : price} EGP</span>
                         </div>

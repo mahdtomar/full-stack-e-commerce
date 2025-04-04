@@ -43,8 +43,8 @@ const SuggestedProducts = ({ category }) => {
         <div className='product-suggested-products flexv'>
             <h2>Browse More Products From The same category</h2>
             <div className="container flex2">
-                {test_products.map(({ title, img, price, discount, }, i) => {
-                    return <ProductCard key={i} title={title} img={img} price={price} discount={discount} />
+                {test_products.map(({ title, img, price, discount,cloudinary_url }, i) => {
+                    return <ProductCard key={i} title={title} img={img} price={price} discount={discount} cloudinary_url={cloudinary_url} />
                 })}
             </div>
             <button className="primary">View More</button>

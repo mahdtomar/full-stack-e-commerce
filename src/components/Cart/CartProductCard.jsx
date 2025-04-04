@@ -4,7 +4,7 @@ import './scss/cartProductCard.css'
 import { useCart } from '../../hooks/useCart'
 import Request from '../../Api/Axios'
 import { Link } from 'react-router-dom'
-const CartProductCard = ({ id, img, title, price, quantity, briefDescription }) => {
+const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cloudinary_url }) => {
     const [count, setCount] = useState(quantity)
     const descriptionRef = useRef(null)
     const { deleteCartItem, getUserCart } = useCart()
@@ -38,7 +38,7 @@ const CartProductCard = ({ id, img, title, price, quantity, briefDescription }) 
     return (
         <div className='cart-product-card flex2'>
             <div className="image-container">
-                <img src={img} alt={title} />
+                {cloudinary_url === "no-image" ? <p className="no-image">no image</p> : <img src={cloudinary_url} alt={title} />}
             </div>
             <div className="info flexv">
                 <div className="wrapper">

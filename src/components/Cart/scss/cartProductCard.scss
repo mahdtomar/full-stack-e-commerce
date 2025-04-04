@@ -15,6 +15,15 @@
             height: 230px;
             object-fit: cover;
         }
+        .no-image {
+            width: 230px;
+            height: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+        }
     }
     .info {
         align-items: flex-start;
@@ -66,7 +75,9 @@
             width: 100%;
             .delete {
                 background-color: unset;
+                transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
                 &:hover {
+                    color: white;
                     background-color: red;
                 }
             }

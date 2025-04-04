@@ -17,6 +17,15 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+.cart-product-card .image-container .no-image {
+  width: 230px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
 .cart-product-card .info {
   align-items: flex-start;
   justify-content: space-between;
@@ -70,7 +79,9 @@
 }
 .cart-product-card .info .options .delete {
   background-color: unset;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 .cart-product-card .info .options .delete:hover {
+  color: white;
   background-color: red;
 }/*# sourceMappingURL=cartProductCard.css.map */

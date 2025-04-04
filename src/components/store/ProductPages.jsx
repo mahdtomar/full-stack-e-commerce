@@ -106,7 +106,7 @@ const ProductPages = () => {
                 <h1 ref={headerRef}>Shop All Products</h1>
                 <div className="products-container flex2">
                     {products?.map((product, i) => {
-                        return <ProductCard key={i} title={product.title} img={product.image} price={product.basePrice} discount={product.discount} id={product._id} rating={product.rating} />
+                        return <ProductCard key={i} title={product.title} img={product.image} price={product.basePrice} discount={product.discount} id={product._id} rating={product.rating} cloudinary_url={product.cloudinary_url} />
                     })}
                     {products.length === 0 && <p>there are no products yet, if you are a vendor you can add a product and it will show up here</p>}
                     {/* {test_products.map(({ title, img, price, discount, }, i) => {
