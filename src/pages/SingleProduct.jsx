@@ -39,7 +39,7 @@ const SingleProduct = () => {
                     <h1>Product not found</h1>
                 </div>
             </> : <>
-                <Header id={product._id} title={product.title} briefDescription={product.briefDescription} price={product.finalPrice} image={product.image} rating={product?.rating} discountPercentage={product?.discountPercentage} basePrice={product.basePrice}/>
+                <Header id={product._id} title={product.title} briefDescription={product.briefDescription} price={product.finalPrice} image={product.cloudinary_url} rating={product?.rating} discountPercentage={product?.discountPercentage} basePrice={product.basePrice} />
                 <div className={`single-product-page-description-container container ${showDescription === true && "show"}`}>
                     <p className="description" ref={descriptionRef}></p>
                     <button onClick={() => setShowDescription(curr => !curr)} className={'primary'}>Show More</button>
