@@ -8,17 +8,16 @@ import Counter from './Counter'
 import log from '../../util/Log'
 import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice'
 import { loginContext } from '../../context/LoginStatus'
-const Header = ({ title, image, briefDescription, price, discount, rating, id, discountPercentage, basePrice }) => {
+const Header = ({ title, image, briefDescription, price, rating, id, discountPercentage, basePrice }) => {
     const { showNotification } = useNotification()
     const [count, setCount] = useState(1)
     const [disabled, setDisabled] = useState(false)
-    const { user, isLogged } = useContext(loginContext)
+    const { user, isLogged, setShowLoginPopup } = useContext(loginContext)
     const [favorite, setFavorite] = useState(false)
     const addToCart = async () => {
         const payload = {
             productId: id,
             count: count,
-            price: discount ? discount : price
         }
         log("single product payload", payload)
         const res = await Request("/add-to-cart", "POST", true, undefined, undefined, JSON.stringify(payload))
@@ -33,12 +32,19 @@ const Header = ({ title, image, briefDescription, price, discount, rating, id, d
         console.log(res)
     }
     const addtoFav = async () => {
+        if (!isLogged) {
+            setShowLoginPopup(true)
+            return
+        }
         setDisabled(true)
         const res = await Request("/favorit", "POST", true, undefined, undefined, JSON.stringify({ id }))
         setDisabled(false)
         console.log(res)
     }
-    useEffect(() => { log("header renders"); if (isLogged) { checkFav() } }, [id])
+    useEffect(() => {
+        log("header renders");
+        if (isLogged) { checkFav() }
+    }, [id])
     return (
         <div className="product-header-root">
             <div className="container flex2">

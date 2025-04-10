@@ -5,10 +5,10 @@ import { useCart } from '../../hooks/useCart'
 import Request from '../../Api/Axios'
 import { Link } from 'react-router-dom'
 import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice'
-const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cloudinary_url, discountPercentage, basePrice }) => {
+const CartProductCard = ({ id, title, price, quantity, briefDescription, cloudinary_url, discountPercentage, basePrice }) => {
     const [count, setCount] = useState(quantity)
     const descriptionRef = useRef(null)
-    const { deleteCartItem, getUserCart } = useCart()
+    const { deleteCartItem, getUserCart, } = useCart()
     const updateCountRef = useRef(null)
 
     const updateProductCount = async () => {
@@ -46,13 +46,6 @@ const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cl
                 <div className="wrapper">
                     <div className="flex2 title-container">
                         <p className='title'>{title}</p>
-                        {/* <div className="price-container flex2">
-                            {discountPercentage > 0 && <div className='discount flex2'>
-                                <span className='old-price'>{basePrice}</span>
-                                <span className='discount-percentage'>{discountPercentage}%</span>
-                            </div>}
-                            <span className="price-tag">{price} EGP</span>
-                        </div> */}
                         <DiscountedPrice basePrice={basePrice} discountPercentage={discountPercentage} finalPrice={price} size={'m'} />
                     </div>
                     <div className="description" ref={descriptionRef}>{briefDescription}</div>

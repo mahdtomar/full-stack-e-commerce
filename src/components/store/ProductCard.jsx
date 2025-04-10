@@ -3,9 +3,11 @@ import './scss/ProductCard.css'
 import star from './../../assets/icons/Star-thin.svg'
 import { useEffect, useRef, useState } from 'react';
 import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice';
+import { useCart } from '../../hooks/useCart';
 const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url, discountPercentage, basePrice }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
     const imagePlaceHolderRef = useRef(null)
+    const { addToCart } = useCart()
     useEffect(() => {
         if (isImageLoading && img) {
             let imageTimeout = setTimeout(() => {
@@ -17,8 +19,8 @@ const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url, 
         }
     }, [isImageLoading, img]);
     return (
-        <Link to={`/store/${title}`} state={{ productId: id }}>
-            <div className="product-card flexv">
+        <div className="product-card flexv">
+            <Link to={`/store/${title}`} state={{ productId: id }}>
                 <div className="rating flex2">
                     <span>{rating > 0 ? rating.toFixed(2) : rating}</span><img src={star} alt="star icon" />
                 </div>
@@ -48,18 +50,15 @@ const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url, 
                     </div>
                     <p className="title">{title}</p>
                 </div>
-                <div>
-                    {/* <div className="price-container flex2">
-                        {discount && <div className='discount flex2'>
-                            <span className='old-price'>{price}</span>
-                            <span className='discount-percentage'>{100 - (discount / price * 100)}%</span>
-                        </div>}
-                        <span className="price-tag">{discount ? discount : price} USD</span>
-                    </div> */}
+            </Link>
+            <div>
+                <Link to={`/store/${title}`} state={{ productId: id }}>
                     <DiscountedPrice discountPercentage={discountPercentage} finalPrice={price} basePrice={basePrice} size={'m'} />
-                    <button className="primary">Add To Cart</button></div>
+                </Link>
+                <button className="primary" onClick={() => { addToCart(id) }}>Add To Cart</button>
             </div>
-        </Link >
+        </div>
+
     )
 }
 

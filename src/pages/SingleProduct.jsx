@@ -15,13 +15,23 @@ const SingleProduct = () => {
     const [product, setProduct] = useState({})
     const [showDescription, setShowDescription] = useState(false)
     const [error, setError] = useState(null)
+    const redirectState = JSON.parse(localStorage.getItem("redirectState") || "null")
+
+    let state = location.state || redirectState;
     const getProductInfo = async () => {
-        const productDetails = await Request(`/product/${location.state?.productId}`, "GET", false)
+        if (!state || !state.productId) {
+            console.log("error with product state,", state)
+            return;
+        }
+        console.log(state)
+        const productDetails = await Request(`/product/${state?.productId}`, "GET", false)
         if (!productDetails.data) {
             setError(true)
             return
         }
         setProduct(productDetails.data)
+        localStorage.removeItem("redirectState");
+
         console.log(productDetails.data)
     }
 
@@ -44,7 +54,7 @@ const SingleProduct = () => {
                         <button onClick={() => setShowDescription(curr => !curr)} className={'primary'}>Show More</button>
                     </div>
                     <SuggestedProducts category={product.category} id={product._id} />
-                    <Comments productId={location.state?.productId} />
+                    <Comments productId={state?.productId} />
                 </>}
         </>
     )

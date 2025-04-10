@@ -1,12 +1,15 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import Request from '../Api/Axios'
 import { loginContext } from '../context/LoginStatus'
+import { useNotification } from './useNotification'
+import log from '../util/Log'
 const cartContext = createContext()
 export const useCart = () => useContext(cartContext)
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const { isLogged } = useContext(loginContext)
     const [cartTotals, setCartTotals] = useState({})
+    const { showNotification } = useNotification()
 
     const getUserCart = useCallback(async () => {
         if (!isLogged) {
@@ -51,13 +54,22 @@ const CartProvider = ({ children }) => {
         });
         setCartTotals({ subtotal, productCount, discountAmount, total });
     };
-
+    const addToCart = async (id, count = 1) => {
+        const payload = {
+            productId: id,
+            count: count,
+        }
+        log("single product payload", payload)
+        const res = await Request("/add-to-cart", "POST", true, undefined, undefined, JSON.stringify(payload))
+        showNotification("success", "Added To Cart")
+        log("single product response", res)
+    }
     useEffect(() => {
         calcTotals()
     }, [cart])
 
     return (
-        <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals }}>{children}</cartContext.Provider>
+        <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals, addToCart }}>{children}</cartContext.Provider>
     )
 }
 

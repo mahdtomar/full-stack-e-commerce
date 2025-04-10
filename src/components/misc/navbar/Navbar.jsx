@@ -4,6 +4,8 @@ import cart from './../../../assets/icons/ShoppingCartSimple.svg'
 import './scss/navbar.css'
 import menuIcon from './../../../assets/icons/menu-2.svg'
 import { Link, useLocation } from "react-router-dom"
+import { useContext } from "react"
+import { loginContext } from "../../../context/LoginStatus"
 
 const Navbar = () => {
     const location = useLocation();
@@ -13,7 +15,7 @@ const Navbar = () => {
         { name: "store", path: "/store" },
         { name: "Contact Us", path: "/contact-us" },
     ];
-
+    const { isLogged } = useContext(loginContext)
     return (
         <nav className="navbar-root ">
             <div className="container flex2">
@@ -34,7 +36,11 @@ const Navbar = () => {
                         <img src={cart} alt="cart" />
                     </Link>
                 </div>
-                <button className="primary">Shop Now</button>
+                {isLogged ?
+                    <Link to={'/store'}><button className="primary">Shop Now</button></Link>
+                    :
+                    <Link to={"/login"}><button className="primary">Login</button></Link>
+                }
                 <div className="menu-icon">
                     <img src={menuIcon} alt="menu icon" />
                 </div>

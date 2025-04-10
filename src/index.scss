@@ -45,13 +45,13 @@ body {
     font-size: 18px;
     cursor: url("./assets/images/cursor.png"), auto;
 }
-input,textarea {
+input,
+textarea {
     cursor: url("./assets/images/cursor-text.png"), text;
 }
-input[type=file]{
-    &:hover{
+input[type="file"] {
+    &:hover {
         cursor: url("./assets/images/cursor-pointer-white.svg"), pointer;
-
     }
 }
 .flex2 {
@@ -100,11 +100,11 @@ button {
         }
     }
 }
-.cursor-pointer{
+.cursor-pointer {
     cursor: url("./assets/images/cursor-pointer-white.svg"), pointer;
-
 }
 a {
+    cursor: url("./assets/images/cursor-pointer-white.svg"), pointer;
     text-decoration: none;
     color: inherit;
 }

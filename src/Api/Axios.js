@@ -101,10 +101,15 @@ axiosInstance.interceptors.response.use(
                     refreshErrors.includes(refreshError.response?.data?.message)
                 ) {
                     console.log(refreshError.response?.data?.message);
+                    const currentState = history.state.usr || null;
+
                     log("Login required");
+                    if (currentState) {
+                        localStorage.setItem("redirectState", JSON.stringify(currentState));
+                      }
                     localStorage.setItem(
                         "redirectAfterLogin",
-                        window.location.pathname + window.location.search
+                        window.location.pathname.split("/").slice(2,).join("/")
                     );
                     location.href = " /full-stack-e-commerce/login";
                 }
