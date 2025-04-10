@@ -4,7 +4,8 @@ import './scss/cartProductCard.css'
 import { useCart } from '../../hooks/useCart'
 import Request from '../../Api/Axios'
 import { Link } from 'react-router-dom'
-const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cloudinary_url }) => {
+import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice'
+const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cloudinary_url, discountPercentage, basePrice }) => {
     const [count, setCount] = useState(quantity)
     const descriptionRef = useRef(null)
     const { deleteCartItem, getUserCart } = useCart()
@@ -35,6 +36,7 @@ const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cl
     useEffect(() => {
         descriptionRef.current.innerHTML = briefDescription
     }, [])
+    console.log(discountPercentage)
     return (
         <div className='cart-product-card flex2'>
             <div className="image-container">
@@ -44,7 +46,14 @@ const CartProductCard = ({ id, img, title, price, quantity, briefDescription, cl
                 <div className="wrapper">
                     <div className="flex2 title-container">
                         <p className='title'>{title}</p>
-                        <p className="price">{price} USD</p>
+                        {/* <div className="price-container flex2">
+                            {discountPercentage > 0 && <div className='discount flex2'>
+                                <span className='old-price'>{basePrice}</span>
+                                <span className='discount-percentage'>{discountPercentage}%</span>
+                            </div>}
+                            <span className="price-tag">{price} EGP</span>
+                        </div> */}
+                        <DiscountedPrice basePrice={basePrice} discountPercentage={discountPercentage} finalPrice={price} size={'m'} />
                     </div>
                     <div className="description" ref={descriptionRef}>{briefDescription}</div>
                 </div>

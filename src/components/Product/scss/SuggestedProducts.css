@@ -1,4 +1,8 @@
 .product-suggested-products {
   gap: 30px;
   margin: 50px auto;
+}
+.product-suggested-products .container {
+  justify-content: center;
+  gap: 15px;
 }/*# sourceMappingURL=SuggestedProducts.css.map */

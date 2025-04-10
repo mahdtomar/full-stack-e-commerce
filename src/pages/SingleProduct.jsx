@@ -22,7 +22,7 @@ const SingleProduct = () => {
             return
         }
         setProduct(productDetails.data)
-        console.log(productDetails)
+        console.log(productDetails.data)
     }
 
     useEffect(() => {
@@ -33,19 +33,19 @@ const SingleProduct = () => {
     }, [product])
     return (
         <>
-            {/* <Header title="Grey Nike running sneakers testing to see if the font will fit 2 lines" description="this is a description for the product this is a description for the product this is a description for the product this is a description for the product this is a description for the product this is a description for the product this is a description for the product " price={50} image={testImage} rating={3.3} discount={35} /> */}
-            {error ? <>
-                <div>
+            {error ?
+                <div className="container">
                     <h1>Product not found</h1>
                 </div>
-            </> : <>
-                <Header id={product._id} title={product.title} briefDescription={product.briefDescription} price={product.finalPrice} image={product.cloudinary_url} rating={product?.rating} discountPercentage={product?.discountPercentage} basePrice={product.basePrice} />
-                <div className={`single-product-page-description-container container ${showDescription === true && "show"}`}>
-                    <p className="description" ref={descriptionRef}></p>
-                    <button onClick={() => setShowDescription(curr => !curr)} className={'primary'}>Show More</button>
-                </div>
-                <SuggestedProducts category={product.category_id} />
-                <Comments productId={location.state?.productId} /></>}
+                : <>
+                    <Header id={product._id} title={product.title} briefDescription={product.briefDescription} price={product.finalPrice} image={product.cloudinary_url} rating={product?.rating} discountPercentage={product?.discountPercentage} basePrice={product.basePrice} />
+                    <div className={`single-product-page-description-container container ${showDescription === true && "show"}`}>
+                        <p className="description" ref={descriptionRef}></p>
+                        <button onClick={() => setShowDescription(curr => !curr)} className={'primary'}>Show More</button>
+                    </div>
+                    <SuggestedProducts category={product.category} id={product._id} />
+                    <Comments productId={location.state?.productId} />
+                </>}
         </>
     )
 }

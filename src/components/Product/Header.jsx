@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useNotification } from '../../hooks/useNotification'
 import Counter from './Counter'
 import log from '../../util/Log'
+import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice'
 const Header = ({ title, image, briefDescription, price, discount, rating, id, discountPercentage, basePrice }) => {
     const { showNotification } = useNotification()
     const [count, setCount] = useState(1)
@@ -28,13 +29,7 @@ const Header = ({ title, image, briefDescription, price, discount, rating, id, d
                     <h1>{title}</h1>
                     <p>{briefDescription}</p>
                     <div className="price-rating flex2">
-                        <div className="price-container flex2">
-                            {discountPercentage > 0 && <div className='discount flex2'>
-                                <span className='old-price'>{basePrice}</span>
-                                <span className='discount-percentage'>{discountPercentage}%</span>
-                            </div>}
-                            <span className="price-tag">{discount ? discount : price} EGP</span>
-                        </div>
+                        <DiscountedPrice basePrice={basePrice} finalPrice={price} discountPercentage={discountPercentage} />
                         <RatingParser rating={rating} />
                     </div>
                     <div className="cta flex2">

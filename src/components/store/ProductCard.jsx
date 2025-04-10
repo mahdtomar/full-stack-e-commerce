@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import './scss/ProductCard.css'
 import star from './../../assets/icons/Star-thin.svg'
 import { useEffect, useRef, useState } from 'react';
-const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url }) => {
+import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice';
+const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url, discountPercentage, basePrice }) => {
     const [isImageLoading, setIsImageLoading] = useState(true);
     const imagePlaceHolderRef = useRef(null)
     useEffect(() => {
@@ -12,7 +13,7 @@ const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url }
                     imagePlaceHolderRef.current.innerHTML = "Image Not Found";
                 }
             }, 3000);
-            return () => clearTimeout(imageTimeout); 
+            return () => clearTimeout(imageTimeout);
         }
     }, [isImageLoading, img]);
     return (
@@ -43,18 +44,19 @@ const ProductCard = ({ title, img, price, discount, id, rating, cloudinary_url }
                             </div>
                         )}
                         {!img && !cloudinary_url && <div className="placeholder" style={{ background: "#f0f0f0" }}>No Image</div>}
-                        <img src={ cloudinary_url} alt={title} onLoad={() => { setIsImageLoading(false) }} />
+                        <img src={cloudinary_url} alt={title} onLoad={() => { setIsImageLoading(false) }} />
                     </div>
                     <p className="title">{title}</p>
                 </div>
                 <div>
-                    <div className="price-container flex2">
+                    {/* <div className="price-container flex2">
                         {discount && <div className='discount flex2'>
                             <span className='old-price'>{price}</span>
                             <span className='discount-percentage'>{100 - (discount / price * 100)}%</span>
                         </div>}
                         <span className="price-tag">{discount ? discount : price} USD</span>
-                    </div>
+                    </div> */}
+                    <DiscountedPrice discountPercentage={discountPercentage} finalPrice={price} basePrice={basePrice} size={'m'} />
                     <button className="primary">Add To Cart</button></div>
             </div>
         </Link >
