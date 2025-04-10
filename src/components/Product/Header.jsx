@@ -7,9 +7,13 @@ import { useNotification } from '../../hooks/useNotification'
 import Counter from './Counter'
 import log from '../../util/Log'
 import DiscountedPrice from '../misc/discountedPrice/DiscountedPrice'
+import { loginContext } from '../../context/LoginStatus'
 const Header = ({ title, image, briefDescription, price, discount, rating, id, discountPercentage, basePrice }) => {
     const { showNotification } = useNotification()
     const [count, setCount] = useState(1)
+    const [disabled, setDisabled] = useState(false)
+    const { user, isLogged } = useContext(loginContext)
+    const [favorite, setFavorite] = useState(false)
     const addToCart = async () => {
         const payload = {
             productId: id,
@@ -21,7 +25,20 @@ const Header = ({ title, image, briefDescription, price, discount, rating, id, d
         showNotification("success", "Added To Cart")
         log("single product response", res)
     }
-    useEffect(() => { log("header renders") }, [])
+    const checkFav = async () => {
+        const res = await Request(`/checkFav/${user._id}/${id}`, "GET", true)
+        if (res.data) {
+            setFavorite(true)
+        }
+        console.log(res)
+    }
+    const addtoFav = async () => {
+        setDisabled(true)
+        const res = await Request("/favorit", "POST", true, undefined, undefined, JSON.stringify({ id }))
+        setDisabled(false)
+        console.log(res)
+    }
+    useEffect(() => { log("header renders"); if (isLogged) { checkFav() } }, [id])
     return (
         <div className="product-header-root">
             <div className="container flex2">
@@ -35,7 +52,7 @@ const Header = ({ title, image, briefDescription, price, discount, rating, id, d
                     <div className="cta flex2">
                         <button className="primary" onClick={addToCart}>add to cart</button>
                         <Counter count={count} setCount={setCount} min={1} />
-                        <button className="favorit"><HeartIcon /></button>
+                        <button className={`favorit`} disabled={disabled} onClick={addtoFav}><HeartIcon favorite={favorite} setFavorite={setFavorite} /></button>
                     </div>
                 </div>
                 <div className="gallery">
