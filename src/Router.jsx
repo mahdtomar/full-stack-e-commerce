@@ -5,12 +5,12 @@ import SingleProduct from "./pages/SingleProduct"
 import Login from "./pages/Login"
 import RegistrationForm from "./components/login/RegistrationForm"
 import LoginForm from "./components/login/LoginForm"
-import AddProduct from "./pages/AddProduct"
+import AddProduct from "./vendor/pages/AddProduct"
 import Cart from "./pages/Cart"
-import Navbar from "./components/misc/navbar/Navbar"
 import CustomerLayout from './layout/CustomerLayout'
 import ContactUs from './pages/ContactUs'
 import CheckOut from "./pages/CheckOut"
+import VendorLayout from "./layout/VendorLayout"
 
 const Router = () => {
     return (
@@ -25,7 +25,9 @@ const Router = () => {
                 <Route path="contact-us" element={<ContactUs />} />
                 <Route path="/check-out" element={<CheckOut />} />
             </Route>
-            <Route path="add-product" element={<AddProduct />} />
+            <Route path="/vendor" element={<VendorLayout />}>
+                <Route path="add-product" element={<AddProduct />} />
+            </Route>
         </Routes>
     )
 }

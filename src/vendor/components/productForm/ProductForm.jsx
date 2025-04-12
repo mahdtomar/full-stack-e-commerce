@@ -2,10 +2,10 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import './scss/productform.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import log from '../../util/Log';
-import Request from '../../Api/Axios';
-import { useNotification } from '../../hooks/useNotification';
-import { loginContext } from '../../context/LoginStatus';
+import log from '../../../util/Log';
+import Request from '../../../Api/Axios';
+import { useNotification } from '../../../hooks/useNotification';
+import { loginContext } from '../../../context/LoginStatus';
 
 const ProductForm = () => {
     const [productName, setProductName] = useState("")

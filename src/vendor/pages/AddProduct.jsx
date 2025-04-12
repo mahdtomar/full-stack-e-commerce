@@ -1,5 +1,4 @@
-import Navbar from "../components/misc/navbar/Navbar"
-import ProductForm from "../components/vendor/ProductForm"
+import ProductForm from "./../components/productForm/ProductForm"
 
 const AddProduct = () => {
     return (

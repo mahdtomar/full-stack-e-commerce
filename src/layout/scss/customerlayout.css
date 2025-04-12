@@ -1,14 +1,14 @@
-.customer-layout {
+.customer-layout, .vendor-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-.customer-layout .navbar-root {
+.customer-layout .navbar-root, .vendor-layout .navbar-root {
   flex-shrink: 0;
 }
-.customer-layout .outlet-container {
+.customer-layout .outlet-container, .vendor-layout .outlet-container {
   flex: 1;
 }
-.customer-layout .footer-root {
+.customer-layout .footer-root, .vendor-layout .footer-root {
   flex-shrink: 0;
 }/*# sourceMappingURL=customerlayout.css.map */
