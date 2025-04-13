@@ -11,8 +11,9 @@ const VendorNavbar = () => {
     const location = useLocation();
 
     const navigationLinks = [
-        { name: "home", path: "/" },
-        { name: "store", path: "/store" },
+        { name: "Dashboard", path: "/vendor/dashboard" },
+        { name: "Products", path: "/vendor/products" },
+        { name: "Home", path: "/" },
         { name: "Contact Us", path: "/contact-us" },
     ];
     const { isLogged } = useContext(loginContext)
