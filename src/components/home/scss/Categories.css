@@ -4,7 +4,6 @@
 }
 .home-categories-root h2 {
   margin-bottom: 15px;
-  font-size: 35px;
 }
 .home-categories-root > p {
   margin-bottom: 45px;
@@ -80,9 +79,6 @@
   }
 }
 @media (max-width: 450px) {
-  .home-categories-root h2 {
-    font-size: 21px;
-  }
   .home-categories-root .categories-cards .category-card {
     width: 100%;
   }

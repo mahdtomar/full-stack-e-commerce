@@ -102,4 +102,10 @@
     width: 30px;
     aspect-ratio: 1/1;
   }
+  .navbar-root .cta {
+    display: none;
+  }
+  .navbar-root .cart-container {
+    gap: 12px;
+  }
 }/*# sourceMappingURL=navbar.css.map */

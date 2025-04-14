@@ -3,7 +3,6 @@
     text-align: center;
     h2 {
         margin-bottom: 15px;
-        font-size: 35px;
     }
     > p {
         margin-bottom: 45px;
@@ -82,9 +81,6 @@
 }
 @media (max-width: 450px) {
     .home-categories-root {
-        h2{
-            font-size: 21px;
-        }
         .categories-cards {
             .category-card {
                 width: 100%;

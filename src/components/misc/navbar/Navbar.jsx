@@ -31,18 +31,20 @@ const Navbar = () => {
                         />
                     ))}
                 </ul>
-                <div className="cart">
+                <div className="cart-container flex2">
                     <Link to={'/cart'}>
                         <img src={cart} alt="cart" />
                     </Link>
+                    <div className="menu-icon">
+                        <img src={menuIcon} alt="menu icon" />
+                    </div>
                 </div>
-                {isLogged ?
-                    <Link to={'/store'}><button className="primary">Shop Now</button></Link>
-                    :
-                    <Link to={"/login"}><button className="primary">Login</button></Link>
-                }
-                <div className="menu-icon">
-                    <img src={menuIcon} alt="menu icon" />
+                <div className="cta">
+                    {isLogged ?
+                        <Link to={'/store'}><button className="primary">Shop Now</button></Link>
+                        :
+                        <Link to={"/login"}><button className="primary">Login</button></Link>
+                    }
                 </div>
             </div>
         </nav>
