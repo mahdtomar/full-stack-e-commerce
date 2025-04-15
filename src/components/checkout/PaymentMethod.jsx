@@ -2,7 +2,11 @@ import React from 'react'
 
 const PaymentMethod = () => {
   return (
-    <div>PaymentMethod</div>
+    <div>
+      <h2>Payment Details</h2>
+      <input type="radio" name="payment-method" id="" />
+      <input type="radio" name="payment-method" id="" />
+    </div>
   )
 }
 

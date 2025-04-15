@@ -4,14 +4,17 @@ import { Outlet } from 'react-router-dom'
 import Footer from '../components/misc/footer/Footer'
 import './scss/customerlayout.css'
 import CartProvider from '../hooks/useCart'
+import CustomerOrderProvider from '../context/CustomerOrderProvider'
 const CustomerLayout = () => {
     return (
         <div className='customer-layout'>
             <Navbar />
             <div className="outlet-container">
-                <CartProvider >
-                    <Outlet />
-                </CartProvider>
+                <CustomerOrderProvider>
+                    <CartProvider >
+                        <Outlet />
+                    </CartProvider>
+                </CustomerOrderProvider>
             </div>
             <Footer />
         </div>
