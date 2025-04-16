@@ -4,5 +4,6 @@
   padding: 15px 0px;
 }
 .cart-page-root .cart-items {
+  align-items: stretch;
   gap: 15px;
 }/*# sourceMappingURL=cart.css.map */

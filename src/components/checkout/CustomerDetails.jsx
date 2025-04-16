@@ -15,7 +15,7 @@ const CustomerDetails = () => {
           placeholder={"Full Name *"}
         />
         <ControlledInput
-          id="email *"
+          id="email"
           value={customerDetails.email}
           onChange={updateCustomerDetails}
           placeholder={"Email *"}

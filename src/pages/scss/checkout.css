@@ -1,0 +1,13 @@
+.check-out-page {
+  align-items: flex-start;
+  margin-block: 30px;
+}
+.check-out-page .sidebar-preview {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+}
+.check-out-page .sidebar-preview h2 {
+  margin-bottom: 12px;
+}/*# sourceMappingURL=checkout.css.map */

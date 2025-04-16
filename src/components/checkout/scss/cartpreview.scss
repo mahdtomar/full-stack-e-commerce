@@ -1,0 +1,12 @@
+.order-lines-container {
+    max-height: 210px;
+    overflow-y: scroll;
+    border: 2px solid rgba($color: #000000, $alpha: 0.15);
+    padding: 8px;
+    border-radius: 8px;
+    .slider {
+        width: 430px;
+        align-items: stretch;
+        gap: 12px;
+    }
+}

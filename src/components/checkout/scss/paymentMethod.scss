@@ -1,0 +1,36 @@
+.checkout-payment-methods {
+    .container {
+        align-items: flex-start;
+        padding: 0px;
+        label {
+            gap: 8px;
+            input {
+                appearance: none;
+                width: 20px;
+                aspect-ratio: 1 / 1;
+                position: relative;
+                border: 1px solid black;
+                border-radius: 50%;
+                cursor: url("./../../../assets/images/cursor-pointer.png"),
+                    pointer;
+                &:before {
+                    content: "";
+                    width: 12px;
+                    aspect-ratio: 1 / 1;
+                    display: none;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: black;
+                    border-radius: 50%;
+                }
+                &:checked {
+                    &::before {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

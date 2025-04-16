@@ -17,7 +17,10 @@ const CustomerOrderProvider = ({ children }) => {
         fullAddress: '',
         additionalDetails: '',
     });
-
+    const [paymentMethod, setPaymentMethod] = useState("onDelivery");
+    const updatePaymentMethod = (method) => {
+        setPaymentMethod(method)
+    }
     const updateCustomerDetails = (field, value) => {
         setCustomerDetails((prev) => ({ ...prev, [field]: value }));
     };
@@ -31,8 +34,10 @@ const CustomerOrderProvider = ({ children }) => {
             value={{
                 customerDetails,
                 shippingDetails,
+                paymentMethod,
                 updateCustomerDetails,
                 updateShippingDetails,
+                updatePaymentMethod
             }}
         >
             {children}

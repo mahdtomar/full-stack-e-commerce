@@ -1,17 +1,23 @@
 import React from 'react'
 import CustomerDetails from '../components/checkout/CustomerDetails'
 import ShippingDetails from '../components/checkout/ShippingDetails'
-
+import PaymentMethod from '../components/checkout/PaymentMethod'
+import CartPreview from '../components/checkout/CartPreview'
+import './scss/checkout.css'
+import PreviewOrderDetails from '../components/checkout/PreviewOrderDetails'
 const CheckOut = () => {
 
     return (
-        <div className='check-out-page container'>
-            <div className="flex2">
-                <div className="details">
-                    <CustomerDetails />
-                    <ShippingDetails />
-                </div>
-                <div className="preview"></div>
+        <div className='check-out-page container flex2'>
+            <div className="details">
+                <CustomerDetails />
+                <ShippingDetails />
+                <PaymentMethod />
+            </div>
+            <div className="sidebar-preview">
+                <h2>Order Details</h2>
+                <CartPreview />
+                <PreviewOrderDetails />
             </div>
         </div>
     )

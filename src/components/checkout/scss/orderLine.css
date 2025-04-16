@@ -1,0 +1,61 @@
+.checkout-order-line {
+  gap: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  min-width: 415px;
+}
+.checkout-order-line .wrapper {
+  width: 65%;
+  gap: 8px;
+  justify-content: flex-start;
+}
+.checkout-order-line .wrapper:nth-child(2) {
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.checkout-order-line .image-container img {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+.checkout-order-line .title {
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.checkout-order-line .countxtotal {
+  gap: 32px;
+}
+.checkout-order-line .countxtotal span:nth-child(1) {
+  position: relative;
+}
+.checkout-order-line .countxtotal span:nth-child(1):after {
+  content: "";
+  height: 70%;
+  width: 1px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.checkout-order-line .deleteIcon {
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+}
+.checkout-order-line .deleteIcon:hover {
+  background-color: red;
+}/*# sourceMappingURL=orderLine.css.map */

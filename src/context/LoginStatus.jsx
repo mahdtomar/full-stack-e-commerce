@@ -8,6 +8,7 @@ const LoginStatus = ({ children }) => {
     const getLoggedUser = () => {
         const user = JSON.parse(localStorage.getItem("user-info"))
         if (user) {
+            console.log("user is present in the localStorage")
             setIsLogged(true)
             setUser(user)
         }

@@ -33,7 +33,7 @@ const Navbar = () => {
                 </ul>
                 <div className="cart-container flex2">
                     <Link to={'/cart'}>
-                        <img src={cart} alt="cart" />
+                        <img src={cart} alt="cart"  className="cursor-pointer "/>
                     </Link>
                     <div className="menu-icon">
                         <img src={menuIcon} alt="menu icon" />

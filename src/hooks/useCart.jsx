@@ -13,6 +13,7 @@ const CartProvider = ({ children }) => {
 
     const getUserCart = useCallback(async () => {
         if (!isLogged) {
+            console.log("user is not logged in")
             return
         }
         const userCart = await Request("/get-cart", "GET", true)
@@ -67,7 +68,7 @@ const CartProvider = ({ children }) => {
     useEffect(() => {
         calcTotals()
     }, [cart])
-
+    useEffect(()=>{getUserCart()},[isLogged])
     return (
         <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals, addToCart }}>{children}</cartContext.Provider>
     )
