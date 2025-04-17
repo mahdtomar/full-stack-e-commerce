@@ -5,19 +5,6 @@ import { useCart } from '../../hooks/useCart'
 const PreviewOrderDetails = () => {
     const { customerDetails, shippingDetails, paymentMethod } = useContext(CustomerOrderContext)
     const { cartTotals } = useCart()
-    //     {
-    //         customerName: '',
-    //         email: '',
-    //         phoneNumber: '',
-    //         phoneNumber2: '',
-    //     }
-    // {
-    //         city: '',
-    //         postCode: '',
-    //         state: '',
-    //         fullAddress: '',
-    //         additionalDetails: '',
-    //     }
     return (
         <div>
             <div className="customer-details section">
@@ -37,7 +24,7 @@ const PreviewOrderDetails = () => {
                 <InfoLine title={"payment method"} value={paymentMethod} />
                 <InfoLine title={"Delivary Cost"} value={cartTotals.total > 150 ? `25` : `free`} />
                 <InfoLine title={"Sub-Total"} value={cartTotals.total} />
-                <InfoLine title={"Total"} value={`${cartTotals.total > 150 ? cartTotals.total + 25 : cartTotals.total}`} />
+                <InfoLine title={"Total"} value={`${cartTotals.total > 150 ? `${cartTotals.total + 25}USD` : `${cartTotals.total}USD`}`} />
             </div>
         </div>
     )
