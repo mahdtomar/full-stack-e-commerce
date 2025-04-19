@@ -102,14 +102,17 @@ axiosInstance.interceptors.response.use(
                 ) {
                     console.log(refreshError.response?.data?.message);
                     const currentState = history.state.usr || null;
-
+                    localStorage.removeItem("user-info");
                     log("Login required");
                     if (currentState) {
-                        localStorage.setItem("redirectState", JSON.stringify(currentState));
-                      }
+                        localStorage.setItem(
+                            "redirectState",
+                            JSON.stringify(currentState)
+                        );
+                    }
                     localStorage.setItem(
                         "redirectAfterLogin",
-                        window.location.pathname.split("/").slice(2,).join("/")
+                        window.location.pathname.split("/").slice(2).join("/")
                     );
                     location.href = " /full-stack-e-commerce/login";
                 }

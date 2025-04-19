@@ -5,6 +5,7 @@ import PaymentMethod from '../components/checkout/PaymentMethod'
 import CartPreview from '../components/checkout/CartPreview'
 import './scss/checkout.css'
 import PreviewOrderDetails from '../components/checkout/PreviewOrderDetails'
+import CheckOutButton from '../components/checkout/CheckOutButton'
 const CheckOut = () => {
 
     return (
@@ -18,6 +19,7 @@ const CheckOut = () => {
                 <h2>Order Details</h2>
                 <CartPreview />
                 <PreviewOrderDetails />
+                <CheckOutButton />
             </div>
         </div>
     )

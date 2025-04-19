@@ -4,7 +4,7 @@ export const CustomerOrderContext = createContext();
 
 const CustomerOrderProvider = ({ children }) => {
     const [customerDetails, setCustomerDetails] = useState({
-        customerName: '',
+        name: '',
         email: '',
         phoneNumber: '',
         phoneNumber2: '',

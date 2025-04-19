@@ -9,8 +9,8 @@ const CustomerDetails = () => {
       <h2>Customer Details</h2>
       <div className="flex2">
         <ControlledInput
-          id="customerName"
-          value={customerDetails.customerName}
+          id="name"
+          value={customerDetails.name}
           onChange={updateCustomerDetails}
           placeholder={"Full Name *"}
         />

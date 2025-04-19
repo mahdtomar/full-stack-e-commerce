@@ -36,7 +36,6 @@ const CartProvider = ({ children }) => {
         let subtotal = 0;
         let productCount = 0;
         let discountAmount = 0;
-        let totalCost = 0;
         cart.forEach(element => {
             if (!element.product) {
                 return;
@@ -48,7 +47,6 @@ const CartProvider = ({ children }) => {
             const finalPrice = element.product.finalPrice;
             // accumulating totals for all products
             productCount += element.count;
-            totalCost += cost * element.count;
             discountAmount += discount * element.count;
             subtotal += basePrice * element.count;
             total += finalPrice * element.count;
@@ -68,7 +66,11 @@ const CartProvider = ({ children }) => {
     useEffect(() => {
         calcTotals()
     }, [cart])
-    useEffect(()=>{getUserCart()},[isLogged])
+    useEffect(() => {
+        if (isLogged) {
+            getUserCart()
+        }
+    }, [isLogged])
     return (
         <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals, addToCart }}>{children}</cartContext.Provider>
     )
