@@ -7,7 +7,7 @@ import Request from './../../Api/Axios'
 import LoginPopup from '../../components/login/LoginPopup'
 import { CustomerOrderContext } from '../../context/CustomerOrderProvider'
 const CheckOutButton = () => {
-    const { cartTotals, cart } = useCart()
+    const { cartTotals, cart, clearCart } = useCart()
     const { total } = cartTotals
     const { user } = useContext(loginContext)
     const [showLoginPopus, setShowLoginPopup] = useState(false)
@@ -32,8 +32,13 @@ const CheckOutButton = () => {
                 method: paymentMethod === "onDelivery" ? "On Delivery" : " Credit Card"
             }
         })
-        const res = await Request('/create-order', "POST", true, undefined, undefined, payload)
-        log("order", res)
+        try {
+            const res = await Request('/create-order', "POST", true, undefined, undefined, payload)
+            log("order", res)
+            clearCart()
+        } catch (error) {
+            log("error in checkOut : ", error)
+        }
     }
     return (
         <>

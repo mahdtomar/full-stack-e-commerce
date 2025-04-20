@@ -63,6 +63,12 @@ const CartProvider = ({ children }) => {
         showNotification("success", "Added To Cart")
         log("single product response", res)
     }
+    const clearCart = async () => {
+        const res = await Request("/clear-cart", "DELETE", true)
+        log("cart cleared, current cart: ", res)
+        getUserCart();
+    }
+    
     useEffect(() => {
         calcTotals()
     }, [cart])
@@ -72,7 +78,7 @@ const CartProvider = ({ children }) => {
         }
     }, [isLogged])
     return (
-        <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals, addToCart }}>{children}</cartContext.Provider>
+        <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals, addToCart, clearCart }}>{children}</cartContext.Provider>
     )
 }
 
