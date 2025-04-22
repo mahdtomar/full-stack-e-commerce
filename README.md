@@ -46,7 +46,6 @@ Shop premium products and unbeatable deals at Cartique. Fast shipping, secure pa
 ## 📸 Screenshots
 
 ![image](https://github.com/user-attachments/assets/6ea949bd-7c36-4873-abeb-8f600ab012a8)
-
 ![image](https://github.com/user-attachments/assets/0e442373-812d-4a03-9af8-58883a7f8299)
 ![image](https://github.com/user-attachments/assets/61f33d15-3988-4a9e-b327-71019a4ac6d4)
 
@@ -56,7 +55,7 @@ Shop premium products and unbeatable deals at Cartique. Fast shipping, secure pa
 
 - **Frontend:** [[https://yourusername.github.io/spaxet](https://mahdtomar.github.io/full-stack-e-commerce/)]
 - **Backend API:** [https://e-commerce-production-2867.up.railway.app/](https://e-commerce-production-2867.up.railway.app/)
-
+- **Design:** [https://www.figma.com/design/oCoLY7s6WN1lxv8X5IfPML/E-commerce?node-id=0-1&t=x2k1bFE7F6ztUlBd-1](https://www.figma.com/design/oCoLY7s6WN1lxv8X5IfPML/E-commerce?node-id=0-1&t=x2k1bFE7F6ztUlBd-1)
 ---
 
 ## 📄 License
