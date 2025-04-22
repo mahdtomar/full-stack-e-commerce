@@ -18,6 +18,7 @@
         .sort-by-comp,
         .category-selection-comp {
             position: relative;
+            z-index: 3;
             button {
                 background-color: white;
                 border-radius: 8px;

@@ -16,6 +16,7 @@
 .filters-bar-root .container .sort-by-comp,
 .filters-bar-root .container .category-selection-comp {
   position: relative;
+  z-index: 3;
 }
 .filters-bar-root .container .filter-by-comp button,
 .filters-bar-root .container .sort-by-comp button,
