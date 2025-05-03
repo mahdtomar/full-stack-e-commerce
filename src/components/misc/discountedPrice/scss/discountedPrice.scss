@@ -24,9 +24,43 @@
             font-size: 22px;
         }
     }
-    &.s{
+    &.s {
         .price-tag {
             font-size: 20px;
+        }
+    }
+}
+@media (max-width: 500px) {
+    .price-container {
+        position: relative;
+        gap: 8px;
+        .discount {
+            position: relative;
+            bottom: 5px;
+            gap: 4px;
+            flex-direction: row-reverse;
+            .old-price {
+                color: #595959;
+                text-decoration: line-through;
+            }
+            .discount-percentage {
+                font-weight: bold;
+                color: var(--green);
+            }
+        }
+        .price-tag {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        &.m {
+            .price-tag {
+                font-size: 16px;
+            }
+        }
+        &.s {
+            .price-tag {
+                font-size: 14px;
+            }
         }
     }
 }

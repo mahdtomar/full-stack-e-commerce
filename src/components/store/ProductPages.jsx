@@ -109,9 +109,6 @@ const ProductPages = () => {
                         return <ProductCard key={i} title={product.title} img={product.image} price={product.finalPrice} discount={product.discount} id={product._id} rating={product.rating} cloudinary_url={product.cloudinary_url} discountPercentage={product?.discountPercentage} basePrice={product.basePrice} />
                     })}
                     {products.length === 0 && <p>there are no products yet, if you are a vendor you can add a product and it will show up here</p>}
-                    {/* {test_products.map(({ title, img, price, discount, }, i) => {
-                        return <ProductCard key={i} title={title} img={img} price={price} discount={discount} />
-                    })} */}
                 </div>
                 <div className="pagination flex2" >
                     {error && <div>

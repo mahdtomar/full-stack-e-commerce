@@ -78,3 +78,74 @@
         width: 100%;
     }
 }
+@media (max-width: 500px) {
+    .product-card {
+        width: 40%;
+        height: 300px;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 10px 10px;
+        justify-content: space-between;
+        align-items: stretch;
+        font-family: inherit;
+        box-shadow: 0px 0px 0px 0px rgba($color: #000000, $alpha: 0.25);
+        transition: box-shadow 0.3s ease-in-out;
+        position: relative;
+        p {
+            font-size: small;
+        }
+        .rating {
+            position: absolute;
+            border-radius: 4px;
+            top: 14px;
+            left: 14px;
+            background-color: white;
+            gap: 5px;
+            font-weight: bold;
+            z-index: 2;
+            padding: 0px 4px;
+            box-shadow: 0px 0px 3px 0px rgba($color: #000000, $alpha: 0.25);
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .image-container {
+            width: 100%;
+            img {
+                max-height: 150px;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+        .price-container {
+            justify-content: flex-start;
+            gap: 0px;
+            font-size: 12px;
+            position: relative;
+            font-family: "poppins";
+            .price-tag {
+                font-weight: bold;
+            }
+            .discount {
+                flex-direction: row-reverse;
+                position: relative;
+                bottom: 4px;
+                .old-price {
+                    text-decoration: line-through;
+                    color: #6e6e6e;
+                    font-size: 12px;
+                }
+                .discount-percentage {
+                    font-size: 14px;
+                    color: #16bf00;
+                    font-weight: 900;
+                }
+            }
+        }
+        button {
+            width: 100%;
+        }
+    }
+}

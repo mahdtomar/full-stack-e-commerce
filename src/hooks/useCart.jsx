@@ -72,11 +72,7 @@ const CartProvider = ({ children }) => {
     useEffect(() => {
         calcTotals()
     }, [cart])
-    useEffect(() => {
-        if (isLogged) {
-            getUserCart()
-        }
-    }, [isLogged])
+
     return (
         <cartContext.Provider value={{ cart, getUserCart, deleteCartItem, cartTotals, addToCart, clearCart }}>{children}</cartContext.Provider>
     )

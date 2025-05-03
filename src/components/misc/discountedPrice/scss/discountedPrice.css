@@ -25,4 +25,35 @@
 }
 .price-container.s .price-tag {
   font-size: 20px;
+}
+
+@media (max-width: 500px) {
+  .price-container {
+    position: relative;
+    gap: 8px;
+  }
+  .price-container .discount {
+    position: relative;
+    bottom: 5px;
+    gap: 4px;
+    flex-direction: row-reverse;
+  }
+  .price-container .discount .old-price {
+    color: #595959;
+    text-decoration: line-through;
+  }
+  .price-container .discount .discount-percentage {
+    font-weight: bold;
+    color: var(--green);
+  }
+  .price-container .price-tag {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .price-container.m .price-tag {
+    font-size: 16px;
+  }
+  .price-container.s .price-tag {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=discountedPrice.css.map */
