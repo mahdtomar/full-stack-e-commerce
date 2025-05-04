@@ -6,3 +6,18 @@
         gap: 15px;
     }
 }
+
+@media (max-width: 500px) {
+    .product-suggested-products {
+        gap: 30px;
+        margin: 50px auto;
+        .slider {
+            width: 100%;
+            overflow: scroll;
+            padding-bottom: 16px;
+        }
+        .container {
+            width: fit-content;
+        }
+    }
+}

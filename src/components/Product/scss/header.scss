@@ -101,3 +101,44 @@
         }
     }
 }
+@media (max-width: 500px) {
+    .product-header-root {
+        .container {
+            gap: 20px;
+            align-items: flex-start;
+            flex-direction: column-reverse;
+            .info {
+                width: 100%;
+                .price-rating {
+                    align-items: flex-start;
+                    width: fit-content;
+                    gap: 0px;
+                    margin-top: 16px;
+                    margin-bottom: 8px;
+                    flex-direction: column-reverse;
+                }
+                h1 {
+                    margin-bottom: 12px;
+                    line-clamp: 10;
+                    -webkit-line-clamp: 10;
+                }
+                p {
+                    line-clamp: 10;
+                    -webkit-line-clamp: 10;
+                }
+                .cta {
+                    width: 100%;
+                    .counter {
+                        width: 250px;
+                        span {
+                            padding: 0px;
+                        }
+                    }
+                }
+            }
+            .gallery {
+                width: 100%;
+            }
+        }
+    }
+}

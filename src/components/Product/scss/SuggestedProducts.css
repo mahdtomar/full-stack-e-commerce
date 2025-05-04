@@ -5,4 +5,20 @@
 .product-suggested-products .container {
   justify-content: center;
   gap: 15px;
+}
+
+@media (max-width: 500px) {
+  .product-suggested-products {
+    gap: 30px;
+    margin: 50px auto;
+  }
+  .product-suggested-products .slider {
+    width: 100%;
+    overflow: scroll;
+    padding-bottom: 16px;
+  }
+  .product-suggested-products .container {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }/*# sourceMappingURL=SuggestedProducts.css.map */

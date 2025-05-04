@@ -44,10 +44,12 @@ const SuggestedProducts = ({ category, id }) => {
     return (
         <div className='product-suggested-products flexv'>
             <h2>Browse More Products From The same category</h2>
-            <div className="container flex2">
-                {suggestedProducts.map((product, i) => {
-                    return <ProductCard key={i} title={product.title} img={product.image} price={product.finalPrice} discount={product.discount} id={product._id} rating={product.rating} cloudinary_url={product.cloudinary_url} discountPercentage={product?.discountPercentage} basePrice={product.basePrice} />
-                })}
+            <div className="slider">
+                <div className="container flex2">
+                    {suggestedProducts.map((product, i) => {
+                        return <ProductCard key={i} title={product.title} img={product.image} price={product.finalPrice} discount={product.discount} id={product._id} rating={product.rating} cloudinary_url={product.cloudinary_url} discountPercentage={product?.discountPercentage} basePrice={product.basePrice} />
+                    })}
+                </div>
             </div>
             <button className="primary">View More</button>
         </div>

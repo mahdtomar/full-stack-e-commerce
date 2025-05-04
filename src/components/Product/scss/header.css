@@ -94,4 +94,45 @@
      object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 500px) {
+  .product-header-root .container {
+    gap: 20px;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+  }
+  .product-header-root .container .info {
+    width: 100%;
+  }
+  .product-header-root .container .info .price-rating {
+    align-items: flex-start;
+    width: -moz-fit-content;
+    width: fit-content;
+    gap: 0px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    flex-direction: column-reverse;
+  }
+  .product-header-root .container .info h1 {
+    margin-bottom: 12px;
+    line-clamp: 10;
+    -webkit-line-clamp: 10;
+  }
+  .product-header-root .container .info p {
+    line-clamp: 10;
+    -webkit-line-clamp: 10;
+  }
+  .product-header-root .container .info .cta {
+    width: 100%;
+  }
+  .product-header-root .container .info .cta .counter {
+    width: 250px;
+  }
+  .product-header-root .container .info .cta .counter span {
+    padding: 0px;
+  }
+  .product-header-root .container .gallery {
+    width: 100%;
+  }
 }/*# sourceMappingURL=header.css.map */

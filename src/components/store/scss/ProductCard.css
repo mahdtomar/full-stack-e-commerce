@@ -83,6 +83,7 @@
 @media (max-width: 500px) {
   .product-card {
     width: 40%;
+    min-width: 150px;
     height: 300px;
     border: 1px solid black;
     border-radius: 8px;
@@ -115,13 +116,14 @@
   }
   .product-card .image-container {
     width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
   }
   .product-card .image-container img {
-    max-height: 150px;
+    height: 150px;
     width: 100%;
-    height: auto;
-    -o-object-fit: contain;
-       object-fit: contain;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .product-card .price-container {
     justify-content: flex-start;
