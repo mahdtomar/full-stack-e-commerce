@@ -21,7 +21,7 @@ const CartSidebar = () => {
             <div className="checkout-box flexv">
                 <div className="flex2">
                     <p>Product Count : </p>
-                    <span>{productCount} USD</span>
+                    <span>{productCount} Items</span>
                 </div>
                 <div className="flex2">
                     <p>SubTotal : </p>

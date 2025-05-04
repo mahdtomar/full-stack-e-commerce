@@ -51,6 +51,7 @@
         .price-tag {
             font-size: 25px;
             font-weight: bold;
+            white-space: nowrap;
         }
         &.m {
             .price-tag {

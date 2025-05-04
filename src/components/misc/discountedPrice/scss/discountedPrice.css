@@ -49,6 +49,7 @@
   .price-container .price-tag {
     font-size: 25px;
     font-weight: bold;
+    white-space: nowrap;
   }
   .price-container.m .price-tag {
     font-size: 16px;

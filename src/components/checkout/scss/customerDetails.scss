@@ -1,0 +1,15 @@
+.checkout-customer-details {
+    align-items: stretch;
+    gap: 16px;
+    .input-container {
+        gap: 16px;
+    }
+    label {
+        width: 100%;
+        display: block;
+        input {
+            display: block;
+            width: 100%;
+        }
+    }
+}

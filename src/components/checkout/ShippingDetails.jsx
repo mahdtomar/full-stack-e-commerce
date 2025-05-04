@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { CustomerOrderContext } from '../../context/CustomerOrderProvider'
 import ControlledInput from '../misc/ControlledInput'
-
+import './scss/shippingDetails.css'
 const ShippingDetails = () => {
     const { shippingDetails, updateShippingDetails } = useContext(CustomerOrderContext)
     return (
-        <div>
+        <div className='checkout-shipping-details details-section flexv'>
             <h2>Shipping Details</h2>
-            <div className="flex2">
+            <div className="flex2 input-container">
                 <ControlledInput
                     id="city"
                     value={shippingDetails.city}
@@ -29,7 +29,7 @@ const ShippingDetails = () => {
 
                 />
             </div>
-            <div>
+            <div className='full-width-input'>
                 <ControlledInput
                     id="fullAddress"
                     value={shippingDetails.fullAddress}
@@ -38,7 +38,7 @@ const ShippingDetails = () => {
 
                 />
             </div>
-            <div>
+            <div className='full-width-input'>
                 <ControlledInput
                     id="additionalDetails"
                     value={shippingDetails.additionalDetails}

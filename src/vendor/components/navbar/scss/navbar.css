@@ -1,50 +1,50 @@
-.navbar-root {
+.vendor-navbar-root {
   margin-top: 30px;
 }
-.navbar-root .logo {
+.vendor-navbar-root .logo {
   font-size: 30px;
 }
-.navbar-root .nav-search {
+.vendor-navbar-root .nav-search {
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;
   width: 444px;
 }
-.navbar-root .nav-search img {
+.vendor-navbar-root .nav-search img {
   width: 22px;
   height: 22px;
   margin-inline: 2px;
 }
-.navbar-root .nav-search input {
+.vendor-navbar-root .nav-search input {
   font-size: 16px;
   line-height: 150%;
   border: none;
   display: block;
   width: 100%;
 }
-.navbar-root .nav-search input::-moz-placeholder {
+.vendor-navbar-root .nav-search input::-moz-placeholder {
   color: black;
 }
-.navbar-root .nav-search input::placeholder {
+.vendor-navbar-root .nav-search input::placeholder {
   color: black;
 }
-.navbar-root .nav-search input:focus {
+.vendor-navbar-root .nav-search input:focus {
   outline: none;
 }
-.navbar-root ul {
+.vendor-navbar-root ul {
   text-transform: capitalize;
   list-style-type: none;
   gap: 30px;
 }
-.navbar-root ul img {
+.vendor-navbar-root ul img {
   width: 32px;
   aspect-ratio: 1/1;
 }
-.navbar-root ul .nav-item {
+.vendor-navbar-root ul .nav-item {
   display: block;
   position: relative;
 }
-.navbar-root ul .nav-item::before {
+.vendor-navbar-root ul .nav-item::before {
   content: "";
   display: block;
   height: 2px;
@@ -55,34 +55,37 @@
   background-color: black;
   transition: width 0.3s ease-in-out;
 }
-.navbar-root ul .nav-item:hover::before {
+.vendor-navbar-root ul .nav-item:hover::before {
   width: 50%;
 }
-.navbar-root ul .nav-item.active::before {
+.vendor-navbar-root ul .nav-item.active::before {
   width: 100%;
 }
-.navbar-root .menu-icon {
+.vendor-navbar-root .menu-icon {
   display: none;
 }
 
 @media (max-width: 850px) {
-  .navbar-root .nav-search {
+  .vendor-navbar-root .nav-search {
     width: 250px;
   }
-  .navbar-root ul {
+  .vendor-navbar-root ul {
     gap: 15px;
   }
 }
 @media (max-width: 768px) {
-  .navbar-root .nav-search {
+  .vendor-navbar-root .nav-search {
     width: 200px;
   }
 }
 @media (max-width: 450px) {
-  .navbar-root .nav-search {
+  .vendor-navbar-root {
+    margin-top: 12px;
+  }
+  .vendor-navbar-root .nav-search {
     display: none;
   }
-  .navbar-root ul {
+  .vendor-navbar-root ul {
     flex-direction: column;
     position: fixed;
     right: 0px;
@@ -90,15 +93,15 @@
     align-items: flex-start;
     display: none;
   }
-  .navbar-root ul a {
+  .vendor-navbar-root ul a {
     text-align: left;
   }
-  .navbar-root .menu-icon {
+  .vendor-navbar-root .menu-icon {
     display: block;
     width: 30px;
     height: 30px;
   }
-  .navbar-root .menu-icon img {
+  .vendor-navbar-root .menu-icon img {
     width: 30px;
     aspect-ratio: 1/1;
   }

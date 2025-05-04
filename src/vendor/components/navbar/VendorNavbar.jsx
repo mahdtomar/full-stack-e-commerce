@@ -18,7 +18,7 @@ const VendorNavbar = () => {
     ];
     const { isLogged } = useContext(loginContext)
     return (
-        <nav className="navbar-root ">
+        <nav className="vendor-navbar-root ">
             <div className="container flex2">
                 <div className="logo">Cartique</div>
                 <NavSearch />

@@ -1,0 +1,11 @@
+.checkout-shipping-details .input-container {
+  gap: 16px;
+}
+.checkout-shipping-details label,
+.checkout-shipping-details input {
+  display: block;
+  width: 100%;
+}
+.checkout-shipping-details .full-width-input {
+  width: 100%;
+}/*# sourceMappingURL=shippingDetails.css.map */

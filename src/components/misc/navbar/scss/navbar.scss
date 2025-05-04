@@ -84,8 +84,9 @@
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .navbar-root {
+        margin-top: 12px;
         .nav-search {
             display: none;
         }
@@ -109,10 +110,10 @@
                 aspect-ratio: 1 / 1;
             }
         }
-        .cta{
+        .cta {
             display: none;
         }
-        .cart-container{
+        .cart-container {
             gap: 12px;
         }
     }

@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <nav className="navbar-root ">
             <div className="container flex2">
-                <div className="logo">Cartique</div>
+                <Link to={"/"}><div className="logo">Cartique</div></Link>
                 <NavSearch />
                 <ul className="flex2 links-container">
                     {navigationLinks.map(({ name, path }, i) => (
@@ -33,7 +33,7 @@ const Navbar = () => {
                 </ul>
                 <div className="cart-container flex2">
                     <Link to={'/cart'}>
-                        <img src={cart} alt="cart"  className="cursor-pointer "/>
+                        <img src={cart} alt="cart" className="cursor-pointer " />
                     </Link>
                     <div className="menu-icon">
                         <img src={menuIcon} alt="menu icon" />

@@ -10,7 +10,7 @@ const CheckOut = () => {
 
     return (
         <div className='check-out-page container flex2'>
-            <div className="details">
+            <div className="details flexv">
                 <CustomerDetails />
                 <ShippingDetails />
                 <PaymentMethod />

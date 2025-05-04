@@ -9,4 +9,19 @@
   width: 430px;
   align-items: stretch;
   gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .order-lines-container {
+    max-height: 210px;
+    overflow-y: scroll;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    padding: 8px;
+    border-radius: 8px;
+  }
+  .order-lines-container .slider {
+    width: 100%;
+    align-items: stretch;
+    gap: 12px;
+  }
 }/*# sourceMappingURL=cartpreview.css.map */

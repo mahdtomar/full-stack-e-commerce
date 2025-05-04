@@ -27,7 +27,7 @@
   width: 32px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .footer {
     padding-top: 30px;
   }

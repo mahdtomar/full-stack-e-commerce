@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import ControlledInput from '../misc/ControlledInput'
 import { CustomerOrderContext } from '../../context/CustomerOrderProvider'
-
+import './scss/customerDetails.css'
 const CustomerDetails = () => {
   const { customerDetails, updateCustomerDetails } = useContext(CustomerOrderContext)
   return (
-    <div>
+    <div className='checkout-customer-details details-section flexv'>
       <h2>Customer Details</h2>
-      <div className="flex2">
+      <div className="flex2 input-container">
         <ControlledInput
           id="name"
           value={customerDetails.name}
@@ -21,7 +21,7 @@ const CustomerDetails = () => {
           placeholder={"Email *"}
         />
       </div>
-      <div className='flex2'>
+      <div className='flex2 input-container'>
         <ControlledInput
           id="phoneNumber"
           value={customerDetails.phoneNumber}

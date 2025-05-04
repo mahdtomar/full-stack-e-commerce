@@ -60,3 +60,28 @@
         }
     }
 }
+@media (max-width: 500px) {
+    .checkout-order-line {
+        min-width: 300px;
+        width: 100%;
+        .wrapper {
+            width: 65%;
+            gap: 8px;
+            justify-content: flex-start;
+            &:nth-child(2) {
+                justify-content: space-between;
+                align-items: center;
+                flex: 1;
+            }
+        }
+        .countxtotal{
+            gap: 12px;
+            span:first-child{
+                &::after{
+                    right: -6px;
+                }
+            }
+        }
+
+    }
+}

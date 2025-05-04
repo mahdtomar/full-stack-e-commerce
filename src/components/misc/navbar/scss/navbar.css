@@ -78,7 +78,10 @@
     width: 200px;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 500px) {
+  .navbar-root {
+    margin-top: 12px;
+  }
   .navbar-root .nav-search {
     display: none;
   }

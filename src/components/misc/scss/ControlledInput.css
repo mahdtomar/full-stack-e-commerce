@@ -4,6 +4,7 @@
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   transition: border-color 0.3s ease-in-out;
+  font-size: small;
 }
 .controlled-input:hover, .controlled-input:focus {
   border-color: black;
