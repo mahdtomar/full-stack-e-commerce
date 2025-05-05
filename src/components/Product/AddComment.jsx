@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import RatingInput from './RatingInput'
-import './scss/AddComment.css'
+import './scss/addComment.css'
 import userImage from './../../assets/icons/User.svg'
 import log from '../../util/Log'
 import { useNotification } from '../../hooks/useNotification'
