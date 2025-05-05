@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useCart } from '../../hooks/useCart'
-import OrderLine from './orderLine'
+import OrderLine from './OrderLine'
 import './scss/cartpreview.css'
 const CartPreview = () => {
   const { cart, getUserCart } = useCart()
