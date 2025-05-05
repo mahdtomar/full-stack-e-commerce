@@ -2,7 +2,7 @@ import { createContext, useState, useContext, useRef } from "react";
 import './scss/useNotification.css';
 import XCircle from './../assets/icons/XCircle.svg'
 import Checks from './../assets/icons/Checks.svg'
-import infoIcon from './../assets/icons/info.svg'
+import infoIcon from './../assets/icons/Info.svg'
 const NotificationContext = createContext();
 
 export const useNotification = () => useContext(NotificationContext);
