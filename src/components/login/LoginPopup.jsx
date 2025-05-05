@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLogin } from '../../context/LoginStatus'
 import xCricle from './../../assets/icons/XCircle-black.svg'
-import './scss/LoginPopup.css'
+import './scss/loginPopup.css'
 import Request, { setAccessToken } from '../../Api/Axios'
 import { useNotification } from '../../hooks/useNotification'
 const LoginPopup = ({ setShowLoginPopup }) => {
