@@ -12,6 +12,7 @@ import ContactUs from './pages/ContactUs'
 import CheckOut from "./pages/CheckOut"
 import VendorLayout from "./layout/VendorLayout"
 import VendorDashboard from "./vendor/pages/VendorDashboard"
+import ProductsList from "./Admin/pages/ProductsList"
 
 const Router = () => {
     return (
@@ -28,6 +29,7 @@ const Router = () => {
             </Route>
             <Route path="/vendor" element={<VendorLayout />}>
                 <Route path="add-product" element={<AddProduct />} />
+                <Route path="products-list" element={<ProductsList />} />
                 <Route path="dashboard" element={<VendorDashboard />} />
             </Route>
         </Routes>

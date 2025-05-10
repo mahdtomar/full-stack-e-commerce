@@ -23,9 +23,10 @@ const CartProvider = ({ children }) => {
 
     const deleteCartItem = async (id) => {
         try {
-            const DeleteItem = await Request(`/delete-item/${id}`, "DELETE", true)
-            console.log(DeleteItem)
-            setCart(DeleteItem.data) // returns the rest of the products after deleting the target product
+            const res = await Request(`/delete-item/${id}`, "DELETE", true)
+            const sanitizedCart = res.data.filter((item) => item)
+            console.log(sanitizedCart)
+            setCart(sanitizedCart) // returns the rest of the products after deleting the target product
         } catch (error) {
             console.log("Error Deleting Cart Item", error)
         }
@@ -68,7 +69,7 @@ const CartProvider = ({ children }) => {
         log("cart cleared, current cart: ", res)
         getUserCart();
     }
-    
+
     useEffect(() => {
         calcTotals()
     }, [cart])
