@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Request from '../../../Api/Axios';
+import useFilteredDateQuery from '../../hooks/useFilteredDateQuery';
 
 const OrdersCountChart = () => {
     const [orders, setOrder] = useState([])
+    const query = useFilteredDateQuery()
     const getOrders = async () => {
-        const testOrders = await Request("/analytics/vendor-orders-Line-chart", "GET", true)
-        const vendorReveneue = await Request("/vendor/revenue", "GET", true)
-        console.log(vendorReveneue)
-        setOrder(testOrders.data);
+        try {
+            const testOrders = await Request("/analytics/vendor-orders-Line-chart", "GET", true, query)
+            setOrder(testOrders.data);
+        } catch (err) {
+            console.error("Failed to fetch analytics:", err);
+        }
     };
 
-    useEffect(() => { getOrders() }, [])
-
+    useEffect(() => { getOrders() }, [query])
     return (
         <div>
             <RenderLineChart data={orders} dataKey={"orderCount"} xAxisDK={"date"} />
-
         </div>
     )
 }
