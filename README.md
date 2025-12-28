@@ -53,8 +53,6 @@ Shop premium products and unbeatable deals at Cartique. Fast shipping, secure pa
 
 ## 🔗 Live Demo
 
-- **Frontend:** [[https://yourusername.github.io/spaxet](https://mahdtomar.github.io/full-stack-e-commerce/)]
-- **Backend API:** [https://e-commerce-production-2867.up.railway.app/](https://e-commerce-production-2867.up.railway.app/)
 - **Design:** [https://www.figma.com/design/oCoLY7s6WN1lxv8X5IfPML/E-commerce?node-id=0-1&t=x2k1bFE7F6ztUlBd-1](https://www.figma.com/design/oCoLY7s6WN1lxv8X5IfPML/E-commerce?node-id=0-1&t=x2k1bFE7F6ztUlBd-1)
 ---
 
@@ -69,12 +67,12 @@ You are not permitted to:
 
 Viewing the code is permitted for educational purposes only.
 
-For licensing inquiries, contact: omarmahdy@gmail.com
+For licensing inquiries, contact: info@omarmahdy.com
 
 ## 📬 Contact
 
 Developed by **Omar Mahdy**  
-📧 [omarmahdy@gmail.com](mailto:omarmahdy@gmail.com)  
+📧 [info@omarmahdy.com](mailto:info@omarmahdy.com)  
 📍 Tanta, Egypt  
 🔗 [LinkedIn Profile](https://www.linkedin.com/in/omar-mahdy-frontend)
 
